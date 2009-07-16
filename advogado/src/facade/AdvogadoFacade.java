@@ -5,8 +5,10 @@
 
 package facade;
 
-import advogado.Cliente;
-import advogado.ClienteDAO;
+import modelo.Cliente;
+import modelo.ClienteDAO;
+import excecao.ClienteNaoEncontradoException;
+import java.util.List;
 
 /**
  *
@@ -17,20 +19,19 @@ public class AdvogadoFacade {
     private ClienteDAO cliente_DAO;
 
     public AdvogadoFacade (){
-        //Construtor Default
+        cliente_DAO = new ClienteDAO();
     }
 
     public Cliente CriarCliente(String nome, String cidade){
         Cliente cliente = new Cliente();
         cliente.setNome(nome);
         cliente.setCidade(cidade);
-        cliente_DAO = new ClienteDAO();
         cliente_DAO.salvar(cliente);
         return cliente;
     }
 
-    public Cliente pesquisarPorNome(String nome) {
-        return null;
+    public List <Cliente> pesquisarPorNome(String nome) throws ClienteNaoEncontradoException {
+        return cliente_DAO.pesquisarPorNome(nome);
     }
 
 

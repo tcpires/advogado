@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package advogado;
+package modelo;
 
 import excecao.ClienteNaoEncontradoException;
 import java.util.ArrayList;
@@ -21,6 +21,7 @@ public class ClienteDAO {
       private Session session;
 
       public ClienteDAO(){
+          //Construtor default
       }
 
       public void salvar(Cliente cliente){
@@ -43,10 +44,25 @@ public class ClienteDAO {
                 }
              }
              if (clienteLista.isEmpty()){
-                 throw new ClienteNaoEncontradoException("Cliente nao encontrado.");
+                 throw new ClienteNaoEncontradoException("Não foi possivel encontrar " + nome);
              }
 
              return clienteLista;
+      }
+
+      public String getClienteAtributo (int id, String atributo) {
+             session = HibernateUtil.getSessionFactory().getCurrentSession();
+             session.beginTransaction();
+             Query query = session.createQuery("Select c From Cliente c Where c.id = :id");
+             query.setParameter("id", id );
+             Cliente cliente = (Cliente) query.uniqueResult();
+             String resultado = "";
+
+             //Melhorar depois o getAtributo
+             if ( atributo.equals("nome")){
+                resultado = cliente.getNome();
+             }
+             return resultado;
       }
 
 }
