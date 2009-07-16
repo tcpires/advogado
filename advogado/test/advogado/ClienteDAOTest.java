@@ -6,7 +6,7 @@
 package advogado;
 
 import modelo.Cliente;
-import modelo.ClienteDAO;
+import servico.ClienteDAO;
 import excecao.ClienteNaoEncontradoException;
 import java.util.List;
 import org.junit.After;
