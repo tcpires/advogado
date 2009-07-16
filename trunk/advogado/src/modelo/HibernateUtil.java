@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package advogado;
+package modelo;
 
 
 import org.hibernate.cfg.AnnotationConfiguration;

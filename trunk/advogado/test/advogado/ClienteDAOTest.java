@@ -5,6 +5,9 @@
 
 package advogado;
 
+import modelo.Cliente;
+import modelo.ClienteDAO;
+import excecao.ClienteNaoEncontradoException;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -49,6 +52,13 @@ public class ClienteDAOTest {
         cliente.setCidade("Campina");
         ClienteDAO instance = new ClienteDAO();
         instance.salvar(cliente);
+
+
+        Cliente cliente2 = new Cliente();
+        cliente2.setNome("Lindolfo");
+        cliente2.setCidade("Natal");
+        instance.salvar(cliente2);
+
     }
 
     /**
@@ -62,6 +72,18 @@ public class ClienteDAOTest {
         List <Cliente> result = instance.pesquisarPorNome(nome);
         Cliente cliente = result.get(0);
         assertEquals(nome, cliente.getNome());
+    }
+
+    /**
+     * Test of pesquisarPorNome method, of class ClienteDAO.
+     */
+    @Test
+    public void testPesquisarPorNome1() throws ClienteNaoEncontradoException {
+        System.out.println("Pesquisar por nome - Nenhum resultado");
+        String nome = "Lindolfo";
+        ClienteDAO instance = new ClienteDAO();
+        //List <Cliente> result = instance.pesquisarPorNome(nome);
+        //Cliente cliente = result.get(0);
     }
 
     /**

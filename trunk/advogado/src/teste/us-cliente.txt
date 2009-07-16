@@ -20,8 +20,8 @@ removeTodosClientes
 # Novo Cliente
 ##################################################################
 # Não deve existir cliente nesse momento
-expectError "Nao foi possivel encontrar Andre" pesquisarPorNome nome=Andre
-expectError "Nao foi possivel encontrar Lindofo" pesquisarPorNome nome=Lindolfo
+expectError "Não foi possivel encontrar Andre" pesquisarPorNome nome=Andre
+expectError "Não foi possivel encontrar Lindolfo" pesquisarPorNome nome=Lindolfo
 
 # Criando dois clientes e comprovando que os mesmos foram criados
 idCliente1=criarCliente nome=Andre cidade=Jampa
