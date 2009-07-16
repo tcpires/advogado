@@ -11,4 +11,18 @@ package facade;
  */
 public class Facade {
 
+    AdvogadoFacade advogadoFacade = new AdvogadoFacade();
+
+    public Facade () {
+        //Construtor default
+    }
+
+    public void removeTodosClientes () {
+        
+    }
+
+    public String pesquisarPorNome( String nome) {
+        return "";
+    }
+    
 }
