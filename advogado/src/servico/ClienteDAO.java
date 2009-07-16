@@ -51,7 +51,7 @@ public class ClienteDAO {
              return clienteLista;
       }
 
-      public String getClienteAtributo (int id, String atributo) {
+      public String getClienteAtributo (Long id, String atributo) {
              session = HibernateUtil.getSessionFactory().getCurrentSession();
              session.beginTransaction();
              Query query = session.createQuery("Select c From Cliente c Where c.id = :id");
@@ -62,7 +62,34 @@ public class ClienteDAO {
              //Melhorar depois o getAtributo
              if ( atributo.equals("nome")){
                 resultado = cliente.getNome();
+             } else if (atributo.equals("cidade")){
+                resultado = cliente.getCidade();
+             } else if (atributo.equals("bairro")){
+                resultado = cliente.getBairro();
+             } else if (atributo.equals("celular")){
+                resultado = cliente.getCelular();
+             } else if (atributo.equals("cep")){
+                resultado = cliente.getCep();
+             } else if (atributo.equals("cpf")){
+                resultado = cliente.getCpf();
+             } else if (atributo.equals("email")){
+                resultado = cliente.getEmail();
+             } else if (atributo.equals("endereco")){
+                resultado = cliente.getEndereco();
+             } else if (atributo.equals("preposto")){
+                resultado = cliente.getPreposto();
+             } else if (atributo.equals("rg")){
+                resultado = cliente.getRg();
+             } else if (atributo.equals("telefone")){
+                resultado = cliente.getTelefone();
+             } else if (atributo.equals("uf")){
+                resultado = cliente.getUf();
+             } else if (atributo.equals("visita")){
+                resultado = cliente.getVisita();
+             } else if (atributo.equals("id")){
+                resultado = cliente.getId().toString();
              }
+
              return resultado;
       }
 
