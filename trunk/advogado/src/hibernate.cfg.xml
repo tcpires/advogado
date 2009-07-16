@@ -12,6 +12,6 @@
     <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
     <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <mapping class="advogado.Cliente"/>
+    <mapping class="modelo.Cliente"/>
   </session-factory>
 </hibernate-configuration>

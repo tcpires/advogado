@@ -67,11 +67,11 @@ public class ClienteDAOTest {
     @Test
     public void testPesquisarPorNome() throws Exception {
         System.out.println("Pesquisar por nome - Um único resultado");
-        String nome = "Andre";
+        String valorEsperado = "Andre";
         ClienteDAO instance = new ClienteDAO();
-        List <Cliente> result = instance.pesquisarPorNome(nome);
+        List <Cliente> result = instance.pesquisarPorNome(valorEsperado);
         Cliente cliente = result.get(0);
-        assertEquals(nome, cliente.getNome());
+        assertEquals(valorEsperado, cliente.getNome());
     }
 
     /**
@@ -100,14 +100,32 @@ public class ClienteDAOTest {
         cliente.setCidade("João Pessoa");
         instance.salvar(cliente);
 
-        String nome1 = "Andre";
-        String nome2 = "Andre Henrique";
+        String valorEsperado1 = "Andre";
+        String valorEsperado2 = "Andre Henrique";
 
-        List <Cliente> result = instance.pesquisarPorNome(nome1);
+        List <Cliente> result = instance.pesquisarPorNome(valorEsperado1);
         Cliente clienteResultado1 = result.get(0);
         Cliente clienteResultado2 = result.get(1);
-        assertEquals(nome1, clienteResultado1.getNome());
-        assertEquals(nome2, clienteResultado2.getNome());
+        assertEquals(valorEsperado1, clienteResultado1.getNome());
+        assertEquals(valorEsperado2, clienteResultado2.getNome());
+    }
+
+    /**
+     * Test of getAtributo method, of class ClienteDAO.
+     */
+    @Test
+    public void testGetAtributo() throws Exception {
+        System.out.println("getAtributo - Nome");
+        String valorEsperado = "Andre";
+        String atributo = "nome";
+        ClienteDAO instance = new ClienteDAO();
+        Long indice = new Long(1);
+        assertEquals(valorEsperado, instance.getClienteAtributo(indice, atributo));
+
+        System.out.println("getAtributo - Cidade");
+        valorEsperado = "Campina";
+        atributo = "cidade";
+        assertEquals(valorEsperado, instance.getClienteAtributo(indice, atributo));
     }
 
 }
