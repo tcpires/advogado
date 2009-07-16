@@ -3,8 +3,9 @@
  * and open the template in the editor.
  */
 
-package modelo;
+package servico;
 
+import modelo.*;
 import excecao.ClienteNaoEncontradoException;
 import java.util.ArrayList;
 import java.util.List;
