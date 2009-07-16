@@ -1,0 +1,34 @@
+##################################################################
+# Algum problema reportar a andrehadm@gmail.com
+##################################################################
+# [Cliente] CRUD de Clientes
+#
+# * Nome
+# * Email
+
+##################################################################
+# Inicialização
+##################################################################
+
+# Ter certeza de estar rodando os testes em um banco de dados de
+# teste.
+
+# Inicializando
+removeTodosClientes
+
+##################################################################
+# Novo Cliente
+##################################################################
+# Não deve existir cliente nesse momento
+expectError "Nao foi possivel encontrar Andre" pesquisarPorNome nome=Andre
+expectError "Nao foi possivel encontrar Lindofo" pesquisarPorNome nome=Lindolfo
+
+# Criando dois clientes e comprovando que os mesmos foram criados
+idCliente1=criarCliente nome=Andre cidade=Jampa
+idCliente2=criarCliente nome=Lindolfo cidade=Natal
+
+expect Andre getClienteAtributo id=${idCliente1} attribute=nome
+expect Jampa getClienteAtributo id=${idCliente1} attribute=cidade
+
+expect Lindolfo getClienteAtributo id=${idCliente2} attribute=nome
+expect Natal getClienteAtributo id=${idCliente2} attribute=cidade
