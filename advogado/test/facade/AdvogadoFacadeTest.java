@@ -47,9 +47,22 @@ public class AdvogadoFacadeTest {
     public void testCriarCliente() {
         System.out.println("CriarCliente");
         String nome = "Andre";
-        String cidade = "Campina";
+        String cpf = "12345678901";
+        String rg="1234567"; 
+        String endereco="Rua Sem Saida";
+        String bairro = "centro";
+        String cidade="João Pessoa";
+        String cep="58000000";
+        String uf="PB";
+        String telefone="3333-3333";
+        String celular="8888-8888";
+        String email="andre@email";
+        String posicao="";
+        String visita="";
+
+
         AdvogadoFacade instance = new AdvogadoFacade();
-        Cliente cliente = instance.CriarCliente(nome, cidade);
+        Cliente cliente = instance.CriarCliente(nome, cpf, rg, endereco, bairro, cidade, cep, uf, telefone, celular, email, posicao, visita);
         assertEquals("Andre", cliente.getNome());
     }
 
@@ -64,6 +77,24 @@ public class AdvogadoFacadeTest {
         List <Cliente> result = instance.pesquisarPorNome(nome);
         Cliente cliente = result.get(0);
         assertEquals(nome, cliente.getNome());
+    }
+
+        /**
+     * Test of getAtributo method, of class ClienteDAO.
+     */
+    @Test
+    public void testGetAtributo() throws Exception {
+        System.out.println("getAtributo - Nome");
+        String valorEsperado = "Andre";
+        String atributo = "nome";
+        AdvogadoFacade instance = new AdvogadoFacade();
+        Long indice = new Long(1);
+        assertEquals(valorEsperado, instance.getClienteAtributo(indice, atributo));
+
+        System.out.println("getAtributo - Cidade");
+        valorEsperado = "João Pessoa";
+        atributo = "cidade";
+        assertEquals(valorEsperado, instance.getClienteAtributo(indice, atributo));
     }
 
 }
