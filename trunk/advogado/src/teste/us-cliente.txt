@@ -4,7 +4,18 @@
 # [Cliente] CRUD de Clientes
 #
 # * Nome
+# * CPF
+# * RG
+# * Endereco
+# * Bairro
+# * Cidade
+# * CEP
+# * UF
+# * Telefone
+# * Celular
 # * Email
+# * Posicao
+# * Visita
 
 ##################################################################
 # Inicialização
@@ -24,8 +35,10 @@ expectError "Não foi possivel encontrar Andre" pesquisarPorNome nome=Andre
 expectError "Não foi possivel encontrar Lindolfo" pesquisarPorNome nome=Lindolfo
 
 # Criando dois clientes e comprovando que os mesmos foram criados
-idCliente1=criarCliente nome=Andre cidade=Jampa
-idCliente2=criarCliente nome=Lindolfo cidade=Natal
+idCliente1=criarCliente nome=Andre cpf=12345678901 rg=1234567 endereco="Rua Sem Saida" bairro=centro cidade="João Pessoa" \
+           cep=58000000 uf=PB telefone=3333-3333 celular=8888-8888 email=andre@email posicao="" visita=""
+idCliente2=criarCliente nome=Lindolfo cpf=12345678902 rg=7654321 endereco="Rua Sem Volta" bairro=centro cidade="Natal" \
+           cep=58000000 uf=RN telefone=3333-3333 celular=9999-9999 email=lindolfo@email posicao="" visita=""
 
 expect Andre getClienteAtributo id=${idCliente1} attribute=nome
 expect Jampa getClienteAtributo id=${idCliente1} attribute=cidade
