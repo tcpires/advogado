@@ -37,16 +37,28 @@ public class AdvogadoGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         barraDeFerramentas = new javax.swing.JToolBar();
         jButton_ClienteNovo = new javax.swing.JButton();
         jButton_ClientePesquisa = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         jPanel_AreaDeTrabalho = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         barraDeMenu = new javax.swing.JMenuBar();
         jMenu_Arquivo = new javax.swing.JMenu();
         jMenuItem_Sair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Advogado");
@@ -75,23 +87,15 @@ public class AdvogadoGUI extends javax.swing.JFrame {
         barraDeFerramentas.add(jButton_ClientePesquisa);
         barraDeFerramentas.add(jSeparator1);
 
-        jLabel1.setText("Area de Trabalho");
-
         javax.swing.GroupLayout jPanel_AreaDeTrabalhoLayout = new javax.swing.GroupLayout(jPanel_AreaDeTrabalho);
         jPanel_AreaDeTrabalho.setLayout(jPanel_AreaDeTrabalhoLayout);
         jPanel_AreaDeTrabalhoLayout.setHorizontalGroup(
             jPanel_AreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_AreaDeTrabalhoLayout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(jLabel1)
-                .addContainerGap(551, Short.MAX_VALUE))
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         jPanel_AreaDeTrabalhoLayout.setVerticalGroup(
             jPanel_AreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_AreaDeTrabalhoLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jLabel1)
-                .addContainerGap(425, Short.MAX_VALUE))
+            .addGap(0, 537, Short.MAX_VALUE)
         );
 
         jMenu_Arquivo.setLabel("Arquivo");
@@ -115,8 +119,10 @@ public class AdvogadoGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(barraDeFerramentas, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
-            .addComponent(jPanel_AreaDeTrabalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(barraDeFerramentas, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jPanel_AreaDeTrabalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,17 +140,14 @@ public class AdvogadoGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_SairMouseClicked
 
     private void jButton_ClienteNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_ClienteNovoMouseClicked
-        
-        //Com popup
-        ClienteGUI clienteGUI = new ClienteGUI(this, rootPaneCheckingEnabled,advogadoFacade);
-        clienteGUI.setVisible(true);
-        
-        //Maneira de Isaac
-        /*
-        ClienteNovo clienteNovo = new ClienteNovo(advogadoFacade);
+        ClienteGUI clienteGUI = new ClienteGUI( advogadoFacade);
+        //clienteGUI.setSize(jPanel_AreaDeTrabalho.getSize());
+        clienteGUI.setSize(jPanel_AreaDeTrabalho.getWidth() - 15, jPanel_AreaDeTrabalho.getHeight() - 15 );
         jPanel_AreaDeTrabalho.removeAll();
-        jPanel_AreaDeTrabalho.add(clienteNovo);
-        jPanel_AreaDeTrabalho.repaint();*/
+        jPanel_AreaDeTrabalho.add(clienteGUI);
+        //jPanel_AreaDeTrabalho.repaint();
+        jPanel_AreaDeTrabalho.revalidate();
+        System.out.println("Novo Cliente.");
 }//GEN-LAST:event_jButton_ClienteNovoMouseClicked
 
     /**
@@ -177,11 +180,12 @@ public class AdvogadoGUI extends javax.swing.JFrame {
     private javax.swing.JMenuBar barraDeMenu;
     private javax.swing.JButton jButton_ClienteNovo;
     private javax.swing.JButton jButton_ClientePesquisa;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem_Sair;
     private javax.swing.JMenu jMenu_Arquivo;
     private javax.swing.JPanel jPanel_AreaDeTrabalho;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JToolBar.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
