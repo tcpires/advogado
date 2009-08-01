@@ -5,6 +5,7 @@
 
 package facade;
 
+import excecao.AtributoNaoEncontrado;
 import modelo.Cliente;
 import excecao.ClienteNaoEncontradoException;
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class Facade {
     }
 
 
-    public Integer criarCliente (String nome, String cpf, String rg, String endereco, String bairro, String cidade, String cep, String uf, String telefone, String celular, String email, String posicao, String visita) {
+    public Integer criarCliente (String nome, String cpf, String rg, String endereco, String bairro, String cidade, String cep, String uf, String telefone, String celular, String email, String posicao, String visita) throws AtributoNaoEncontrado {
         Integer saida = advogadoFacade.CriarCliente(nome, cpf, rg, endereco, bairro, cidade, cep, uf, telefone, celular, email, posicao, visita).getId().intValue();
         System.out.println("Criar: " + saida);
         return saida; 

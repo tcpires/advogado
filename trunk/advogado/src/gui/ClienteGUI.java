@@ -11,8 +11,15 @@
 
 package gui;
 
+import excecao.AtributoNaoEncontrado;
 import facade.AdvogadoFacade;
+import java.awt.Component;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JToolBar;
 
 /**
  *
@@ -21,10 +28,14 @@ import javax.swing.JOptionPane;
 public class ClienteGUI extends javax.swing.JPanel {
 
     private AdvogadoFacade advogadoFacade;
+    private JPanel areaDeTrabalho;
+    private JToolBar barraDeFerramentas;
 
     /** Creates new form ClienteGUI */
-    public ClienteGUI(AdvogadoFacade advogadoFacade) {
+    public ClienteGUI(JPanel areaDeTrabalho, JToolBar barra, AdvogadoFacade advogadoFacade) {
         this.advogadoFacade = advogadoFacade;
+        this.areaDeTrabalho = areaDeTrabalho;
+        this.barraDeFerramentas = barra;
         initComponents();
         this.setVisible(true);
     }
@@ -49,7 +60,6 @@ public class ClienteGUI extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jTextField_Bairro = new javax.swing.JTextField();
         jTextField_Cidade = new javax.swing.JTextField();
-        jButton_Limpar = new javax.swing.JButton();
         jButton_Salvar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -66,6 +76,8 @@ public class ClienteGUI extends javax.swing.JPanel {
         jFormattedTextField_Telefone = new javax.swing.JFormattedTextField();
         jFormattedTextField_Celular = new javax.swing.JFormattedTextField();
         jFormattedTextField_Visista = new javax.swing.JFormattedTextField();
+        jButton_Cancelar = new javax.swing.JButton();
+        jButton_Limpar = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Novo Cliente", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
@@ -80,13 +92,6 @@ public class ClienteGUI extends javax.swing.JPanel {
         jLabel5.setText("Bairro");
 
         jLabel6.setText("Cidade");
-
-        jButton_Limpar.setText("Limpar");
-        jButton_Limpar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_LimparMouseClicked(evt);
-            }
-        });
 
         jButton_Salvar.setText("Salvar");
         jButton_Salvar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,6 +146,20 @@ public class ClienteGUI extends javax.swing.JPanel {
             ex.printStackTrace();
         }
 
+        jButton_Cancelar.setText("Fechar");
+        jButton_Cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_CancelarMouseClicked(evt);
+            }
+        });
+
+        jButton_Limpar.setText("Limpar");
+        jButton_Limpar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_LimparMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,7 +210,9 @@ public class ClienteGUI extends javax.swing.JPanel {
                                 .addGap(6, 6, 6)
                                 .addComponent(jButton_Salvar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton_Limpar))
+                                .addComponent(jButton_Limpar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton_Cancelar))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -249,6 +270,7 @@ public class ClienteGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Salvar)
+                    .addComponent(jButton_Cancelar)
                     .addComponent(jButton_Limpar))
                 .addContainerGap())
         );
@@ -268,32 +290,94 @@ public class ClienteGUI extends javax.swing.JPanel {
         String email = jTextField_Email.getText();
         String posicao = jTextField_Posicao.getText();
         String visita = jFormattedTextField_Visista.getText();
-        advogadoFacade.CriarCliente(nome, cpf, rg, endereco, bairro, cidade, cep, uf, telefone, celular, email, posicao, visita);
+        
+        System.out.println("cpf: " + cpf.trim().length());
+        System.out.println("cep: " + cep.trim().length());
+        System.out.println("telefone: "+telefone.trim().length());
+        System.out.println("celular: "+celular.trim().length());
+        System.out.println("visita: "+visita.trim().length());
+        
+        if (cpf.trim().length() == 9) {
+            cpf = "";
+        }
+        if (cep.trim().length() == 1) {
+            cep = "";
+        }
+        if (telefone.trim().length() == 10) {
+            telefone = "";
+        }
+        if (celular.trim().length() == 10) {
+            celular = "";
+        }
+        if (visita.trim().length() == 4) {
+            visita = "";
+        }
 
-        JOptionPane.showMessageDialog(null, "Cliente "+nome+" salvo com sucesso.");
-        limpaCampos();
+
+        try {
+            advogadoFacade.CriarCliente(nome, cpf, rg, endereco, bairro, cidade, cep, uf, telefone, celular, email, posicao, visita);
+            JOptionPane.showMessageDialog(null, "Cliente "+nome+" salvo com sucesso.");
+            limpaCampos();
+        } catch (AtributoNaoEncontrado ex) {
+            System.out.println("Falta algum atributo.");
+            //Logger.getLogger(ClienteGUI.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage() ,"Erro",JOptionPane.ERROR_MESSAGE);
+            //jTextField_Nome.grabFocus();
+            //jFormattedTextField_CEP.grabFocus();
+        }
+
     }//GEN-LAST:event_jButton_SalvarMouseClicked
+
+    
+
+
+    
+
+    private void verificaNomeVazio(String nome) {
+        if (nome.isEmpty()) {
+            //jTextField_Nome.
+        }
+    }
+
+    private void jButton_CancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CancelarMouseClicked
+        habilitaBotoesBarraDeFerramentas();
+        System.out.println("Habilitei os botoes.");
+        areaDeTrabalho.removeAll();
+        System.out.println("Removi tudo.");
+        areaDeTrabalho.revalidate();
+        System.out.println("Revalidei.");
+        areaDeTrabalho.repaint();
+    }//GEN-LAST:event_jButton_CancelarMouseClicked
+
+    private void habilitaBotoesBarraDeFerramentas(){
+        for (Component botoes: barraDeFerramentas.getComponents()) {
+            botoes.setEnabled(true);
+        }
+        System.out.println("Terminei o habilitar.");
+    }
 
     private void jButton_LimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_LimparMouseClicked
         limpaCampos();
     }//GEN-LAST:event_jButton_LimparMouseClicked
 
     private void limpaCampos() {
-        jTextField_Nome.removeAll();
-        jFormattedTextField_CPF.removeAll();
-        jTextField_RG.removeAll();
-        jTextField_Endereco.removeAll();
-        jTextField_Bairro.removeAll();
-        jTextField_Cidade.removeAll();
-        jFormattedTextField_CEP.removeAll();
-        jFormattedTextField_Telefone.removeAll();
-        jFormattedTextField_Celular.removeAll();
-        jTextField_Email.removeAll();
-        jTextField_Posicao.removeAll();
-        jFormattedTextField_Visista.removeAll();
+        jTextField_Nome.setText("");
+        jFormattedTextField_CPF.setText("");
+        jTextField_RG.setText("");
+        jTextField_Endereco.setText("");
+        jTextField_Bairro.setText("");
+        jTextField_Cidade.setText("");
+        jFormattedTextField_CEP.setText("");
+        jFormattedTextField_Telefone.setText("");
+        jFormattedTextField_Celular.setText("");
+        jTextField_Email.setText("");
+        jTextField_Posicao.setText("");
+        jFormattedTextField_Visista.setText("");
+        System.out.println("Tudo limpado.");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_Cancelar;
     private javax.swing.JButton jButton_Limpar;
     private javax.swing.JButton jButton_Salvar;
     private javax.swing.JComboBox jComboBox_UF;

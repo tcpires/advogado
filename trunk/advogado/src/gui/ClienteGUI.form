@@ -76,6 +76,8 @@
                               <Component id="jButton_Salvar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton_Limpar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButton_Cancelar" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
@@ -149,6 +151,7 @@
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton_Salvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_Cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_Limpar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -196,14 +199,6 @@
     <Component class="javax.swing.JTextField" name="jTextField_Bairro">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_Cidade">
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton_Limpar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Limpar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_LimparMouseClicked"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton_Salvar">
       <Properties>
@@ -320,6 +315,22 @@
           <Format format="##/##/####" subtype="-1" type="5"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton_Cancelar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fechar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_CancelarMouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton_Limpar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_LimparMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
