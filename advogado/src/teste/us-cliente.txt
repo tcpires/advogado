@@ -41,7 +41,46 @@ idCliente2=criarCliente nome=Lindolfo cpf=12345678902 rg=7654321 endereco="Rua S
            cep=58000000 uf=RN telefone=3333-3333 celular=9999-9999 email=lindolfo@email posicao="" visita=""
 
 expect Andre getClienteAtributo id=${idCliente1} attribute=nome
-expect Jampa getClienteAtributo id=${idCliente1} attribute=cidade
+expect 12345678901 getClienteAtributo id=${idCliente1} attribute=cpf
+expect 1234567 getClienteAtributo id=${idCliente1} attribute=rg
+expect "Rua Sem Saida" getClienteAtributo id=${idCliente1} attribute=endereco
+expect centro getClienteAtributo id=${idCliente1} attribute=bairro
+expect "João Pessoa" getClienteAtributo id=${idCliente1} attribute=cidade
+expect 58000000 getClienteAtributo id=${idCliente1} attribute=cep
+expect PB getClienteAtributo id=${idCliente1} attribute=uf
+expect 3333-3333 getClienteAtributo id=${idCliente1} attribute=telefone
+expect 8888-8888 getClienteAtributo id=${idCliente1} attribute=celular
+expect andre@email getClienteAtributo id=${idCliente1} attribute=email
 
 expect Lindolfo getClienteAtributo id=${idCliente2} attribute=nome
+expect 12345678902 getClienteAtributo id=${idCliente2} attribute=cpf
+expect 7654321 getClienteAtributo id=${idCliente2} attribute=rg
+expect "Rua Sem Volta" getClienteAtributo id=${idCliente2} attribute=endereco
+expect centro getClienteAtributo id=${idCliente2} attribute=bairro
 expect Natal getClienteAtributo id=${idCliente2} attribute=cidade
+expect 58000000 getClienteAtributo id=${idCliente2} attribute=cep
+expect RN getClienteAtributo id=${idCliente2} attribute=uf
+expect 3333-3333 getClienteAtributo id=${idCliente2} attribute=telefone
+expect 9999-9999 getClienteAtributo id=${idCliente2} attribute=celular
+expect lindolfo@email getClienteAtributo id=${idCliente2} attribute=email
+
+##################################################################
+# Regras para criar um cliente
+##################################################################
+expectError "Atributo requerido: Nome" criarCliente nome="" cpf=12345678901 rg=1234567 endereco="Rua Sem Saida" bairro=centro cidade="João Pessoa" \
+           cep=58000000 uf=PB telefone=3333-3333 celular=8888-8888 email=andre@email posicao="" visita=""
+
+expectError "Atributo requerido: Nome" criarCliente nome= cpf=12345678901 rg=1234567 endereco="Rua Sem Saida" bairro=centro cidade="João Pessoa" \
+           cep=58000000 uf=PB telefone=3333-3333 celular=8888-8888 email=andre@email posicao="" visita=""
+
+expectError "Atributo requerido: CPF" criarCliente nome=Andre cpf="" rg=1234567 endereco="Rua Sem Saida" bairro=centro cidade="João Pessoa" \
+           cep=58000000 uf=PB telefone=3333-3333 celular=8888-8888 email=andre@email posicao="" visita=""
+
+expectError "Atributo requerido: CPF" criarCliente nome=Andre cpf= rg=1234567 endereco="Rua Sem Saida" bairro=centro cidade="João Pessoa" \
+           cep=58000000 uf=PB telefone=3333-3333 celular=8888-8888 email=andre@email posicao="" visita=""
+
+expectError "Atributo requerido: Nome, CPF" criarCliente nome= cpf= rg=1234567 endereco="Rua Sem Saida" bairro=centro cidade="João Pessoa" \
+           cep=58000000 uf=PB telefone=3333-3333 celular=8888-8888 email=andre@email posicao="" visita=""
+
+expectError "Atributo requerido: Nome, CPF" criarCliente nome="" cpf="" rg=1234567 endereco="Rua Sem Saida" bairro=centro cidade="João Pessoa" \
+           cep=58000000 uf=PB telefone=3333-3333 celular=8888-8888 email=andre@email posicao="" visita=""

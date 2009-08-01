@@ -12,6 +12,7 @@
 package gui;
 
 import facade.AdvogadoFacade;
+import java.awt.Component;
 
 /**
  *
@@ -137,18 +138,37 @@ public class AdvogadoGUI extends javax.swing.JFrame {
 
     private void jMenuItem_SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem_SairMouseClicked
         System.exit(0);
+
     }//GEN-LAST:event_jMenuItem_SairMouseClicked
 
     private void jButton_ClienteNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_ClienteNovoMouseClicked
-        ClienteGUI clienteGUI = new ClienteGUI( advogadoFacade);
-        //clienteGUI.setSize(jPanel_AreaDeTrabalho.getSize());
-        clienteGUI.setSize(jPanel_AreaDeTrabalho.getWidth() - 15, jPanel_AreaDeTrabalho.getHeight() - 15 );
-        jPanel_AreaDeTrabalho.removeAll();
-        jPanel_AreaDeTrabalho.add(clienteGUI);
-        //jPanel_AreaDeTrabalho.repaint();
-        jPanel_AreaDeTrabalho.revalidate();
-        System.out.println("Novo Cliente.");
+
+        if (jButton_ClienteNovo.isEnabled()) {
+            ClienteGUI clienteGUI = new ClienteGUI(jPanel_AreaDeTrabalho, barraDeFerramentas, advogadoFacade);
+            clienteGUI.setSize(jPanel_AreaDeTrabalho.getWidth() - 15, jPanel_AreaDeTrabalho.getHeight() - 15 );
+            jPanel_AreaDeTrabalho.removeAll();
+            jPanel_AreaDeTrabalho.add(clienteGUI);
+            jPanel_AreaDeTrabalho.revalidate();
+            System.out.println(barraDeFerramentas.getComponentCount());
+            desabilitaBotoesBarraDeFerramentas();
+            System.out.println("Novo Cliente.");
+        }
 }//GEN-LAST:event_jButton_ClienteNovoMouseClicked
+
+    //Ainda não está sendo usado
+    public void atualizarAreaDeTrabalho() {
+        jPanel_AreaDeTrabalho.removeAll();
+        System.out.println("Removi tudo.");
+        jPanel_AreaDeTrabalho.revalidate();
+        System.out.println("Revalidei.");
+        //jPanel_AreaDeTrabalho.repaint();
+    }
+
+    private void desabilitaBotoesBarraDeFerramentas(){
+        for (Component botoes: barraDeFerramentas.getComponents()  ) {
+            botoes.setEnabled(false);
+        }
+    }
 
     /**
     * @param args the command line arguments

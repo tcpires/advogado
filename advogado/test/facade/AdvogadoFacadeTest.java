@@ -5,6 +5,7 @@
 
 package facade;
 
+import excecao.AtributoNaoEncontrado;
 import modelo.Cliente;
 import excecao.ClienteNaoEncontradoException;
 import java.util.List;
@@ -44,7 +45,7 @@ public class AdvogadoFacadeTest {
      * Test of CriarCliente method, of class AdvogadoFacade.
      */
     @Test
-    public void testCriarCliente() {
+    public void testCriarCliente() throws AtributoNaoEncontrado {
         System.out.println("CriarCliente");
         String nome = "Andre";
         String cpf = "12345678901";
@@ -65,6 +66,8 @@ public class AdvogadoFacadeTest {
         Cliente cliente = instance.CriarCliente(nome, cpf, rg, endereco, bairro, cidade, cep, uf, telefone, celular, email, posicao, visita);
         assertEquals("Andre", cliente.getNome());
     }
+
+
 
     /**
      * Test of pesquisarPorNome method, of class AdvogadoFacade.
