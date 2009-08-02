@@ -5,7 +5,7 @@
 package servico;
 
 import java.util.List;
-import modelo.Vara;
+import modelo.Juiz;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -13,26 +13,26 @@ import org.hibernate.Session;
  *
  * @author andrehadm
  */
-public class VaraDAO {
+public class JuizDAO {
 
     private Session session;
 
-    public VaraDAO() {
+    public JuizDAO() {
         //Construtor default
     }
 
-    public void salvar(Vara vara) {
+    public void salvar(Juiz juiz) {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        session.save(vara);
+        session.save(juiz);
         session.getTransaction().commit();
     }
 
-    public List<Vara> getVara() {
+    public List<Juiz> getJuiz() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Query query = session.createQuery("Select v From Vara v");
-        List<Vara> varaLista = query.list();
-        return varaLista;
+        Query query = session.createQuery("Select j From Juiz j");
+        List<Juiz> juizLista = query.list();
+        return juizLista;
     }
 }
