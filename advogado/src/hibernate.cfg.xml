@@ -15,5 +15,7 @@
     <mapping class="modelo.Cliente"/>
     <mapping class="modelo.Comarca"/>
     <mapping class="modelo.Vara"/>
+    <mapping class="modelo.Juiz"/>
+    <mapping class="modelo.Processo"/>
   </session-factory>
 </hibernate-configuration>
