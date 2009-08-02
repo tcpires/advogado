@@ -35,5 +35,14 @@ public class ComarcaDAO {
         List<Comarca> comarcaLista = query.list();
         return comarcaLista;
     }
-    
+
+    public Comarca pesquisarPorId(Long id) {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Query query = session.createQuery("Select c From Comarca c Where c.id: id");
+        query.setParameter("id", id);
+        Comarca comarca = (Comarca) query.uniqueResult();
+        return comarca;
+    }
+
 }

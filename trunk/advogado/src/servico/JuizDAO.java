@@ -35,4 +35,14 @@ public class JuizDAO {
         List<Juiz> juizLista = query.list();
         return juizLista;
     }
+
+    public Juiz pesquisarPorId(Long id) {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Query query = session.createQuery("Select j From Juiz j Where j.id: id");
+        query.setParameter("id", id);
+        Juiz juiz = (Juiz) query.uniqueResult();
+        return juiz;
+    }
+
 }
