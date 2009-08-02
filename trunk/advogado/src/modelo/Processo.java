@@ -29,11 +29,11 @@ public class Processo implements Serializable{
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "comarca")
-    private Comarca comarca;
+    @Column(name = "idComarca")
+    private Long idComarca;
 
-    @Column(name = "vara")
-    private Vara vara;
+    @Column(name = "idVara")
+    private Long idVara;
 
     @Column(name = "tipoDaAcao")
     private String tipoDaAcao;
@@ -41,8 +41,8 @@ public class Processo implements Serializable{
     @Column(name = "fase")
     private String fase;
 
-    @Column(name = "cliente")
-    private Cliente cliente;
+    @Column(name = "idCliente")
+    private Long idCliente;
 
     @Column(name = "status")
     private String status;
@@ -56,8 +56,8 @@ public class Processo implements Serializable{
     @Column(name = "advogadoOposto")
     private String advogadoOposto;
 
-    @Column(name = "juiz")
-    private Juiz juiz;
+    @Column(name = "idJuiz")
+    private Long idJuiz;
 
     @Column(name = "valorDaCausa")
     private Double valorDaCausa;
@@ -88,22 +88,6 @@ public class Processo implements Serializable{
         this.advogadoOposto = advogadoOposto;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Comarca getComarca() {
-        return comarca;
-    }
-
-    public void setComarca(Comarca comarca) {
-        this.comarca = comarca;
-    }
-
     public String getEstrategia() {
         return estrategia;
     }
@@ -128,14 +112,6 @@ public class Processo implements Serializable{
         this.honorarios = honorarios;
     }
 
-    public Juiz getJuiz() {
-        return juiz;
-    }
-
-    public void setJuiz(Juiz juiz) {
-        this.juiz = juiz;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -158,6 +134,46 @@ public class Processo implements Serializable{
 
     public void setParteOposta(String parteOposta) {
         this.parteOposta = parteOposta;
+    }
+
+        public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public Long getIdComarca() {
+        return idComarca;
+    }
+
+    public void setIdComarca(Long idComarca) {
+        this.idComarca = idComarca;
+    }
+
+    public Long getIdJuiz() {
+        return idJuiz;
+    }
+
+    public void setIdJuiz(Long idJuiz) {
+        this.idJuiz = idJuiz;
+    }
+
+    public Long getIdVara() {
+        return idVara;
+    }
+
+    public void setIdVara(Long idVara) {
+        this.idVara = idVara;
     }
 
     public String getPosicao() {
@@ -190,14 +206,6 @@ public class Processo implements Serializable{
 
     public void setValorDaCausa(Double valorDaCausa) {
         this.valorDaCausa = valorDaCausa;
-    }
-
-    public Vara getVara() {
-        return vara;
-    }
-
-    public void setVara(Vara vara) {
-        this.vara = vara;
     }
 
 }
