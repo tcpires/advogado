@@ -13,5 +13,7 @@
     <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <mapping class="modelo.Cliente"/>
+    <mapping class="modelo.Comarca"/>
+    <mapping class="modelo.Vara"/>
   </session-factory>
 </hibernate-configuration>
