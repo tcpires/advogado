@@ -35,4 +35,14 @@ public class VaraDAO {
         List<Vara> varaLista = query.list();
         return varaLista;
     }
+
+    public Vara pesquisarPorId(Long id) {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Query query = session.createQuery("Select v From Vara v Where v.id: id");
+        query.setParameter("id", id);
+        Vara vara = (Vara) query.uniqueResult();
+        return vara;
+    }
+
 }
