@@ -60,14 +60,14 @@ public class JuizDAOTest {
      * Test of getJuiz method, of class JuizDAO.
      */
     @Test
-    public void testGetJuiz() {
+    public void testGetTodosJuizes() {
         System.out.println("getJuiz");
         JuizDAO instance = new JuizDAO();
 
         String juiz = "Antonio";
         String juiz2 = "Sivanildo";
 
-        List<Juiz> result = instance.getJuiz();
+        List<Juiz> result = instance.getTodosJuizes();
         assertEquals(juiz, result.get(0).getNome());
         assertEquals(juiz2, result.get(1).getNome());
     }

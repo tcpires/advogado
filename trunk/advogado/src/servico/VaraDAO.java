@@ -28,10 +28,10 @@ public class VaraDAO {
         session.getTransaction().commit();
     }
 
-    public List<Vara> getVara() {
+    public List<Vara> getTodasVaras() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Query query = session.createQuery("Select v From Vara v");
+        Query query = session.createQuery("Select v From Vara v order by nome");
         List<Vara> varaLista = query.list();
         return varaLista;
     }

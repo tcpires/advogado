@@ -76,7 +76,7 @@ public class ClienteGUI extends javax.swing.JPanel {
         jFormattedTextField_Telefone = new javax.swing.JFormattedTextField();
         jFormattedTextField_Celular = new javax.swing.JFormattedTextField();
         jFormattedTextField_Visista = new javax.swing.JFormattedTextField();
-        jButton_Cancelar = new javax.swing.JButton();
+        jButtonFechar = new javax.swing.JButton();
         jButton_Limpar = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Novo Cliente", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
@@ -146,10 +146,10 @@ public class ClienteGUI extends javax.swing.JPanel {
             ex.printStackTrace();
         }
 
-        jButton_Cancelar.setText("Fechar");
-        jButton_Cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonFechar.setText("Fechar");
+        jButtonFechar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_CancelarMouseClicked(evt);
+                jButtonFecharMouseClicked(evt);
             }
         });
 
@@ -212,7 +212,7 @@ public class ClienteGUI extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton_Limpar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton_Cancelar))
+                                .addComponent(jButtonFechar))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -270,7 +270,7 @@ public class ClienteGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Salvar)
-                    .addComponent(jButton_Cancelar)
+                    .addComponent(jButtonFechar)
                     .addComponent(jButton_Limpar))
                 .addContainerGap())
         );
@@ -339,7 +339,7 @@ public class ClienteGUI extends javax.swing.JPanel {
         }
     }
 
-    private void jButton_CancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_CancelarMouseClicked
+    private void jButtonFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFecharMouseClicked
         habilitaBotoesBarraDeFerramentas();
         System.out.println("Habilitei os botoes.");
         areaDeTrabalho.removeAll();
@@ -347,7 +347,7 @@ public class ClienteGUI extends javax.swing.JPanel {
         areaDeTrabalho.revalidate();
         System.out.println("Revalidei.");
         areaDeTrabalho.repaint();
-    }//GEN-LAST:event_jButton_CancelarMouseClicked
+    }//GEN-LAST:event_jButtonFecharMouseClicked
 
     private void habilitaBotoesBarraDeFerramentas(){
         for (Component botoes: barraDeFerramentas.getComponents()) {
@@ -377,7 +377,7 @@ public class ClienteGUI extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Cancelar;
+    private javax.swing.JButton jButtonFechar;
     private javax.swing.JButton jButton_Limpar;
     private javax.swing.JButton jButton_Salvar;
     private javax.swing.JComboBox jComboBox_UF;

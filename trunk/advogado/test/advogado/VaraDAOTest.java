@@ -66,7 +66,7 @@ public class VaraDAOTest {
         String vara = "Pequenas Causas";
         String vara2 = "Família";
 
-        List<Vara> result = instance.getVara();
+        List<Vara> result = instance.getTodasVaras();
         assertEquals(vara, result.get(0).getNome());
         assertEquals(vara2, result.get(1).getNome());
     }

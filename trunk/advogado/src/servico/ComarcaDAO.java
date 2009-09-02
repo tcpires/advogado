@@ -28,10 +28,10 @@ public class ComarcaDAO {
         session.getTransaction().commit();
     }
 
-    public List<Comarca> getComarca()  {
+    public List<Comarca> getTodasComarcas()  {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Query query = session.createQuery("Select c From Comarca c");
+        Query query = session.createQuery("Select c From Comarca c order by nome");
         List<Comarca> comarcaLista = query.list();
         return comarcaLista;
     }
