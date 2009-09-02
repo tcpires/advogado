@@ -34,6 +34,7 @@ public class ComarcaDAOTest {
 
     @Before
     public void setUp() {
+        testSalvar();
     }
 
     @After
@@ -43,8 +44,7 @@ public class ComarcaDAOTest {
     /**
      * Test of salvar method, of class ComarcaDAO.
      */
-    @Test
-    public void testSalvar() {
+    private void testSalvar() {
         System.out.println("salvar");
         Comarca comarca = new Comarca();
         comarca.setNome("Campina Grande");
@@ -67,7 +67,7 @@ public class ComarcaDAOTest {
         String comarca = "Campina Grande";
         String comarca2 = "João Pessoa";
 
-        List<Comarca> result = instance.getComarca();
+        List<Comarca> result = instance.getTodasComarcas();
         assertEquals(comarca, result.get(0).getNome());
         assertEquals(comarca2, result.get(1).getNome());
     }

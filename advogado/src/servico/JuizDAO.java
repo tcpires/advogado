@@ -28,10 +28,10 @@ public class JuizDAO {
         session.getTransaction().commit();
     }
 
-    public List<Juiz> getJuiz() {
+    public List<Juiz> getTodosJuizes() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Query query = session.createQuery("Select j From Juiz j");
+        Query query = session.createQuery("Select j From Juiz j order by nome");
         List<Juiz> juizLista = query.list();
         return juizLista;
     }

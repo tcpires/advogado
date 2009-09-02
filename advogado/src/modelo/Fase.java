@@ -17,11 +17,11 @@ import javax.persistence.Table;
  * @author andrehadm
  */
 @Entity
-@Table(name = "Juiz")
-public class Juiz implements Serializable {
+@Table(name="Fase")
+public class Fase implements Serializable {
 
-    public Juiz() {
-        //construtor default
+    public Fase() {
+        //Construtor default
     }
 
     @Id
@@ -52,5 +52,4 @@ public class Juiz implements Serializable {
     public String toString() {
         return getNome().toString();
     }
-    
 }

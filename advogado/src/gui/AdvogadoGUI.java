@@ -21,7 +21,7 @@ import java.awt.Component;
 public class AdvogadoGUI extends javax.swing.JFrame {
 
     /**Atributos*/
-    AdvogadoFacade advogadoFacade;
+    private AdvogadoFacade advogadoFacade;
 
     /** Creates new form AdvogadoGUI */
     public AdvogadoGUI() {
@@ -41,10 +41,12 @@ public class AdvogadoGUI extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         barraDeFerramentas = new javax.swing.JToolBar();
-        jButton_ClienteNovo = new javax.swing.JButton();
-        jButton_ClientePesquisa = new javax.swing.JButton();
+        jButtonClienteNovo = new javax.swing.JButton();
+        jButtonClientePesquisa = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
-        jPanel_AreaDeTrabalho = new javax.swing.JPanel();
+        jButtonProcessoNovo = new javax.swing.JButton();
+        jButtonTeste = new javax.swing.JButton();
+        jPanelAreaDeTrabalho = new javax.swing.JPanel();
         barraDeMenu = new javax.swing.JMenuBar();
         jMenu_Arquivo = new javax.swing.JMenu();
         jMenuItem_Sair = new javax.swing.JMenuItem();
@@ -68,34 +70,56 @@ public class AdvogadoGUI extends javax.swing.JFrame {
         barraDeFerramentas.setFloatable(false);
         barraDeFerramentas.setRollover(true);
 
-        jButton_ClienteNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clienteNovo.png"))); // NOI18N
-        jButton_ClienteNovo.setToolTipText("Criar novo cliente");
-        jButton_ClienteNovo.setFocusable(false);
-        jButton_ClienteNovo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton_ClienteNovo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton_ClienteNovo.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonClienteNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clienteNovo.png"))); // NOI18N
+        jButtonClienteNovo.setToolTipText("Criar novo cliente");
+        jButtonClienteNovo.setFocusable(false);
+        jButtonClienteNovo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonClienteNovo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonClienteNovo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_ClienteNovoMouseClicked(evt);
+                jButtonClienteNovoMouseClicked(evt);
             }
         });
-        barraDeFerramentas.add(jButton_ClienteNovo);
+        barraDeFerramentas.add(jButtonClienteNovo);
 
-        jButton_ClientePesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clientePesquisa.png"))); // NOI18N
-        jButton_ClientePesquisa.setToolTipText("Pesquisar por cliente");
-        jButton_ClientePesquisa.setFocusable(false);
-        jButton_ClientePesquisa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton_ClientePesquisa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        barraDeFerramentas.add(jButton_ClientePesquisa);
+        jButtonClientePesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clientePesquisa.png"))); // NOI18N
+        jButtonClientePesquisa.setToolTipText("Pesquisar por cliente");
+        jButtonClientePesquisa.setFocusable(false);
+        jButtonClientePesquisa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonClientePesquisa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        barraDeFerramentas.add(jButtonClientePesquisa);
         barraDeFerramentas.add(jSeparator1);
 
-        javax.swing.GroupLayout jPanel_AreaDeTrabalhoLayout = new javax.swing.GroupLayout(jPanel_AreaDeTrabalho);
-        jPanel_AreaDeTrabalho.setLayout(jPanel_AreaDeTrabalhoLayout);
-        jPanel_AreaDeTrabalhoLayout.setHorizontalGroup(
-            jPanel_AreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jButtonProcessoNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/processoNovo.png"))); // NOI18N
+        jButtonProcessoNovo.setFocusable(false);
+        jButtonProcessoNovo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonProcessoNovo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProcessoNovo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonProcessoNovoMouseClicked(evt);
+            }
+        });
+        barraDeFerramentas.add(jButtonProcessoNovo);
+
+        jButtonTeste.setText("Teste");
+        jButtonTeste.setFocusable(false);
+        jButtonTeste.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonTeste.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonTeste.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonTesteMouseClicked(evt);
+            }
+        });
+        barraDeFerramentas.add(jButtonTeste);
+
+        javax.swing.GroupLayout jPanelAreaDeTrabalhoLayout = new javax.swing.GroupLayout(jPanelAreaDeTrabalho);
+        jPanelAreaDeTrabalho.setLayout(jPanelAreaDeTrabalhoLayout);
+        jPanelAreaDeTrabalhoLayout.setHorizontalGroup(
+            jPanelAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 800, Short.MAX_VALUE)
         );
-        jPanel_AreaDeTrabalhoLayout.setVerticalGroup(
-            jPanel_AreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelAreaDeTrabalhoLayout.setVerticalGroup(
+            jPanelAreaDeTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 537, Short.MAX_VALUE)
         );
 
@@ -123,14 +147,14 @@ public class AdvogadoGUI extends javax.swing.JFrame {
             .addComponent(barraDeFerramentas, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jPanel_AreaDeTrabalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelAreaDeTrabalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(barraDeFerramentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_AreaDeTrabalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelAreaDeTrabalho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -138,28 +162,49 @@ public class AdvogadoGUI extends javax.swing.JFrame {
 
     private void jMenuItem_SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem_SairMouseClicked
         System.exit(0);
-
     }//GEN-LAST:event_jMenuItem_SairMouseClicked
 
-    private void jButton_ClienteNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_ClienteNovoMouseClicked
+    private void jButtonClienteNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClienteNovoMouseClicked
 
-        if (jButton_ClienteNovo.isEnabled()) {
-            ClienteGUI clienteGUI = new ClienteGUI(jPanel_AreaDeTrabalho, barraDeFerramentas, advogadoFacade);
-            clienteGUI.setSize(jPanel_AreaDeTrabalho.getWidth() - 15, jPanel_AreaDeTrabalho.getHeight() - 15 );
-            jPanel_AreaDeTrabalho.removeAll();
-            jPanel_AreaDeTrabalho.add(clienteGUI);
-            jPanel_AreaDeTrabalho.revalidate();
+        if (jButtonClienteNovo.isEnabled()) {
+            ClienteGUI clienteGUI = new ClienteGUI(jPanelAreaDeTrabalho, barraDeFerramentas, advogadoFacade);
+            clienteGUI.setSize(jPanelAreaDeTrabalho.getWidth() - 15, jPanelAreaDeTrabalho.getHeight() - 15 );
+            jPanelAreaDeTrabalho.removeAll();
+            jPanelAreaDeTrabalho.add(clienteGUI);
+            jPanelAreaDeTrabalho.revalidate();
             System.out.println(barraDeFerramentas.getComponentCount());
             desabilitaBotoesBarraDeFerramentas();
             System.out.println("Novo Cliente.");
         }
-}//GEN-LAST:event_jButton_ClienteNovoMouseClicked
+}//GEN-LAST:event_jButtonClienteNovoMouseClicked
+
+    private void jButtonProcessoNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProcessoNovoMouseClicked
+            
+        if (jButtonProcessoNovo.isEnabled()) {
+            ProcessoGUI processoGUI = new ProcessoGUI(jPanelAreaDeTrabalho, barraDeFerramentas, advogadoFacade);
+            processoGUI.setSize(jPanelAreaDeTrabalho.getWidth() - 15, jPanelAreaDeTrabalho.getHeight() - 15 );
+            jPanelAreaDeTrabalho.removeAll();
+            jPanelAreaDeTrabalho.add(processoGUI);
+            jPanelAreaDeTrabalho.revalidate();
+            System.out.println(barraDeFerramentas.getComponentCount());
+            desabilitaBotoesBarraDeFerramentas();
+            System.out.println("Novo Processo.");
+        }
+        //TesteLimpar tl =  new TesteLimpar(this, rootPaneCheckingEnabled);
+        //tl.setEnabled(true);
+        //tl.setVisible(true);
+    }//GEN-LAST:event_jButtonProcessoNovoMouseClicked
+
+    private void jButtonTesteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonTesteMouseClicked
+        TesteLimpar tl = new TesteLimpar(this, rootPaneCheckingEnabled);
+        tl.setVisible(true);
+    }//GEN-LAST:event_jButtonTesteMouseClicked
 
     //Ainda não está sendo usado
     public void atualizarAreaDeTrabalho() {
-        jPanel_AreaDeTrabalho.removeAll();
+        jPanelAreaDeTrabalho.removeAll();
         System.out.println("Removi tudo.");
-        jPanel_AreaDeTrabalho.revalidate();
+        jPanelAreaDeTrabalho.revalidate();
         System.out.println("Revalidei.");
         //jPanel_AreaDeTrabalho.repaint();
     }
@@ -198,13 +243,15 @@ public class AdvogadoGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToolBar barraDeFerramentas;
     private javax.swing.JMenuBar barraDeMenu;
-    private javax.swing.JButton jButton_ClienteNovo;
-    private javax.swing.JButton jButton_ClientePesquisa;
+    private javax.swing.JButton jButtonClienteNovo;
+    private javax.swing.JButton jButtonClientePesquisa;
+    private javax.swing.JButton jButtonProcessoNovo;
+    private javax.swing.JButton jButtonTeste;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem_Sair;
     private javax.swing.JMenu jMenu_Arquivo;
-    private javax.swing.JPanel jPanel_AreaDeTrabalho;
+    private javax.swing.JPanel jPanelAreaDeTrabalho;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JToolBar.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables

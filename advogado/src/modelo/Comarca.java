@@ -49,4 +49,8 @@ public class Comarca implements Serializable{
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return getNome().toString();
+    }
 }

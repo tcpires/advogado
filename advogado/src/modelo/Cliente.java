@@ -194,4 +194,9 @@ public class Cliente implements Serializable{
         this.visita = visita;
     }
 
+    @Override
+    public String toString() {
+        return getNome().toString();
+    }
+
 }
