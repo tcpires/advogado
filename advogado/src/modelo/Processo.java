@@ -35,11 +35,11 @@ public class Processo implements Serializable{
     @Column(name = "idVara")
     private Long idVara;
 
-    @Column(name = "tipoDaAcao")
-    private String tipoDaAcao;
+    @Column(name = "idTipoDaAcao")
+    private Long idTipoDaAcao;
 
-    @Column(name = "fase")
-    private String fase;
+    @Column(name = "idFase")
+    private Long idFase;
 
     @Column(name = "idCliente")
     private Long idCliente;
@@ -96,12 +96,12 @@ public class Processo implements Serializable{
         this.estrategia = estrategia;
     }
 
-    public String getFase() {
-        return fase;
+    public Long getIdFase() {
+        return idFase;
     }
 
-    public void setFase(String fase) {
-        this.fase = fase;
+    public void setIdFase(Long fase) {
+        this.idFase = fase;
     }
 
     public Double getHonorarios() {
@@ -136,7 +136,7 @@ public class Processo implements Serializable{
         this.parteOposta = parteOposta;
     }
 
-        public Long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -192,12 +192,12 @@ public class Processo implements Serializable{
         this.status = status;
     }
 
-    public String getTipoDaAcao() {
-        return tipoDaAcao;
+    public Long getIdTipoDaAcao() {
+        return idTipoDaAcao;
     }
 
-    public void setTipoDaAcao(String tipoDaAcao) {
-        this.tipoDaAcao = tipoDaAcao;
+    public void setIdTipoDaAcao(Long idTipoDaAcao) {
+        this.idTipoDaAcao = idTipoDaAcao;
     }
 
     public Double getValorDaCausa() {

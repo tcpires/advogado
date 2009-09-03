@@ -11,12 +11,16 @@
 
 package gui;
 
+import excecao.AtributoNaoEncontrado;
 import facade.AdvogadoFacade;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
+import modelo.Acao;
 import modelo.Cliente;
 import modelo.Comarca;
+import modelo.Fase;
 import modelo.Juiz;
 import modelo.Vara;
 
@@ -40,6 +44,8 @@ public class ProcessoGUI extends javax.swing.JPanel {
         carregaVara();
         carregaCliente();
         carregaJuiz();
+        carregaFase();
+        carregaAcao();
         this.setVisible(true);
     }
 
@@ -103,15 +109,21 @@ public class ProcessoGUI extends javax.swing.JPanel {
 
         jLabelTipoDaAcao.setText("Tipo da Ação");
 
-        jComboBoxTipoDaAcao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButtonNovoTipoDaAcao.setText("Novo");
+        jButtonNovoTipoDaAcao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonNovoTipoDaAcaoMouseClicked(evt);
+            }
+        });
 
         jLabelFase.setText("Fase");
 
-        jComboBoxFase.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButtonNovaFase.setText("Novo");
+        jButtonNovaFase.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonNovaFaseMouseClicked(evt);
+            }
+        });
 
         jLabelCliente.setText("Cliente");
 
@@ -151,6 +163,11 @@ public class ProcessoGUI extends javax.swing.JPanel {
         jScrollPane2.setViewportView(jTextAreaEstrategia);
 
         jButtonSalvar.setText("Salvar");
+        jButtonSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonSalvarMouseClicked(evt);
+            }
+        });
 
         jButtonLimpar.setText("Limpar");
         jButtonLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -339,11 +356,8 @@ public class ProcessoGUI extends javax.swing.JPanel {
 
     private void jButtonFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFecharMouseClicked
         habilitaBotoesBarraDeFerramentas();
-        System.out.println("Habilitei os botoes.");
         areaDeTrabalho.removeAll();
-        System.out.println("Removi tudo.");
         areaDeTrabalho.revalidate();
-        System.out.println("Revalidei.");
         areaDeTrabalho.repaint();
     }//GEN-LAST:event_jButtonFecharMouseClicked
 
@@ -369,11 +383,56 @@ public class ProcessoGUI extends javax.swing.JPanel {
         carregaJuiz();
     }//GEN-LAST:event_jButtonNovoJuizMouseClicked
 
+    private void jButtonNovaFaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNovaFaseMouseClicked
+        FaseGUI fg = new FaseGUI(advogadoFacade, null, true);
+        fg.setVisible(true);
+        carregaFase();
+    }//GEN-LAST:event_jButtonNovaFaseMouseClicked
+
+    private void jButtonNovoTipoDaAcaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNovoTipoDaAcaoMouseClicked
+        AcaoGUI ag = new AcaoGUI(advogadoFacade, null, true);
+        ag.setVisible(true);
+        carregaAcao();
+    }//GEN-LAST:event_jButtonNovoTipoDaAcaoMouseClicked
+
+    private void jButtonSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalvarMouseClicked
+        // TODO add your handling code here:
+        String nome = jTextFieldProcesso.getText();
+        Comarca comarca = (Comarca) jComboBoxComarca.getSelectedItem();
+        Vara vara = (Vara) jComboBoxVara.getSelectedItem();
+        Acao acao = (Acao) jComboBoxTipoDaAcao.getSelectedItem();
+        Fase fase = (Fase) jComboBoxFase.getSelectedItem();
+        Cliente cliente = (Cliente) jComboBoxCliente.getSelectedItem();
+        String status = jComboBoxStatus1.getSelectedItem().toString();
+        String posicao = jComboBoxStatus2.getSelectedItem().toString();
+        String parteOposta = jTextFieldParteOposta.getText();
+        String advogadoOposto = jTextFieldAdvogadoOposto.getText();
+        Juiz juiz = (Juiz) jComboBoxJuiz.getSelectedItem();
+        Double valorDaCausa = Double.parseDouble(jTextFieldValorDaCausa.getText());
+        Double honorarios = Double.parseDouble(jTextFieldHonorarios.getText());
+        String observacoes = jTextAreaObservacoes.getText();
+        String estrategia = jTextAreaEstrategia.getText();
+
+        //try {
+            advogadoFacade.CriarProcesso(nome, comarca.getId(), vara.getId(), acao.getId(), fase.getId(), cliente.getId(), juiz.getId(), status, posicao, parteOposta, advogadoOposto, valorDaCausa, honorarios, observacoes, estrategia);
+            JOptionPane.showMessageDialog(null, "Processo "+nome+" salvo com sucesso.");
+            limpaCampos();
+        //} catch (AtributoNaoEncontrado ex) {
+          //  System.out.println("Falta algum atributo.");
+            //Logger.getLogger(ClienteGUI.class.getName()).log(Level.SEVERE, null, ex);
+          //JOptionPane.showMessageDialog(null, ex.getMessage() ,"Erro",JOptionPane.ERROR_MESSAGE);
+            //jTextField_Nome.grabFocus();
+            //jFormattedTextField_CEP.grabFocus();
+        //}
+
+    }//GEN-LAST:event_jButtonSalvarMouseClicked
+
     private void habilitaBotoesBarraDeFerramentas(){
         for (Component botoes: barraDeFerramentas.getComponents()) {
             botoes.setEnabled(true);
         }
-        System.out.println("Terminei o habilitar.");
+        System.out.println("");
+        System.out.println("Todos os botoes habilitados.");
     }
 
     private void limpaCampos(){
@@ -426,6 +485,30 @@ public class ProcessoGUI extends javax.swing.JPanel {
         }
         System.out.println("Tamanho da lista de juizes: " + jComboBoxJuiz.getItemCount());
         System.out.println("Juizes carregados.");
+    }
+
+    private void carregaFase() {
+        jComboBoxFase.removeAllItems();
+        System.out.println("");
+        System.out.println("Carregando fases");
+        for (Fase fase : advogadoFacade.getTodasFases()) {
+            jComboBoxFase.addItem(fase);
+            System.out.println("Fase: "+ fase.getId() + " - " + fase.getNome());
+        }
+        System.out.println("Tamanho da lista de fases: " + jComboBoxFase.getItemCount());
+        System.out.println("fases carregados.");
+    }
+
+    private void carregaAcao() {
+        jComboBoxTipoDaAcao.removeAllItems();
+        System.out.println("");
+        System.out.println("Carregando tipo de ações");
+        for (Acao acao : advogadoFacade.getTodasAcoes()) {
+            jComboBoxTipoDaAcao.addItem(acao);
+            System.out.println("Tipo de Ação: "+ acao.getId() + " - " + acao.getNome());
+        }
+        System.out.println("Tamanho da lista de tipo de ações: " + jComboBoxTipoDaAcao.getItemCount());
+        System.out.println("Tipo de ações carregados.");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

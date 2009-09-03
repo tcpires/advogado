@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="1" time="0.051" errors="0" skipped="0" tests="3" name="facade.AdvogadoFacadeTest">
+  <properties>
+    <property name="java.vendor" value="Sun Microsystems Inc."/>
+    <property name="env.SESSION_MANAGER" value="local/crabs:/tmp/.ICE-unix/4915"/>
+    <property name="env.LESSOPEN" value="| /usr/bin/lesspipe %s"/>
+    <property name="localRepository" value="/home/andrehadm/.m2/repository"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Server Compiler"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/resources.jar:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/rt.jar:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/jsse.jar:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/jce.jar:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/charsets.jar:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/classes"/>
+    <property name="env.PWD" value="/data/Programação/WorkspaceBeans/advogado"/>
+    <property name="env.XDG_SESSION_COOKIE" value="91ce11df5101725521ce76a54a70362b-1249428206.789423-500586500"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="env.LANG" value="pt_BR.UTF-8"/>
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="java.runtime.version" value="1.6.0_14-b08"/>
+    <property name="env.DISPLAY" value=":0.0"/>
+    <property name="user.name" value="andrehadm"/>
+    <property name="env._" value="/usr/bin/mvn"/>
+    <property name="env.USER" value="andrehadm"/>
+    <property name="env.HISTCONTROL" value="ignoreboth"/>
+    <property name="env.SHELL" value="/bin/bash"/>
+    <property name="env.DESKTOP_SESSION" value="default"/>
+    <property name="env.XDG_DATA_DIRS" value="/usr/local/share/:/usr/share/:/usr/share/gdm/"/>
+    <property name="env.NLSPATH" value="/usr/dt/lib/nls/msg/%L/%N.cat"/>
+    <property name="env.PATH" value="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"/>
+    <property name="user.language" value="pt"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/amd64"/>
+    <property name="classworlds.conf" value="/usr/share/maven2/bin/m2.conf"/>
+    <property name="java.version" value="1.6.0_14"/>
+    <property name="user.timezone" value="America/Sao_Paulo"/>
+    <property name="env.DBUS_SESSION_BUS_ADDRESS" value="unix:abstract=/tmp/dbus-O4bndDqDLW,guid=e1458ab8a51c50679c95467b4a78c2ef"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="env.SSH_AGENT_PID" value="5008"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/endorsed"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="env.SHLVL" value="1"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="env.GNOME_DESKTOP_SESSION_ID" value="this-is-deprecated"/>
+    <property name="java.class.version" value="50.0"/>
+    <property name="env.GDMSESSION" value="default"/>
+    <property name="user.country" value="BR"/>
+    <property name="env.GNOME_KEYRING_PID" value="4904"/>
+    <property name="java.home" value="/usr/lib/jvm/java-6-sun-1.6.0.14/jre"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="env.LOGNAME" value="andrehadm"/>
+    <property name="os.version" value="2.6.28-14-generic"/>
+    <property name="path.separator" value=":"/>
+    <property name="java.vm.version" value="14.0-b16"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="env.TERM" value="xterm"/>
+    <property name="env.WINDOWPATH" value="7:7"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="env.DESKTOP_AUTOSTART_ID" value="107bf24faeddb907ce124942820830986800000049150003"/>
+    <property name="env.GDM_LANG" value="pt_BR.UTF-8"/>
+    <property name="user.home" value="/home/andrehadm"/>
+    <property name="env.OLDPWD" value="/home/andrehadm"/>
+    <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="java.library.path" value="/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/amd64/server:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/amd64:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/../lib/amd64:/usr/java/packages/lib/amd64:/lib:/usr/lib"/>
+    <property name="java.vendor.url" value="http://java.sun.com/"/>
+    <property name="env.GDM_XSERVER_LOCATION" value="local"/>
+    <property name="java.vm.vendor" value="Sun Microsystems Inc."/>
+    <property name="maven.home" value="/usr/share/maven2"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.class.path" value="/usr/share/maven2/boot/classworlds.jar"/>
+    <property name="env.XFILESEARCHPATH" value="/usr/dt/app-defaults/%L/Dt"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.vm.specification.version" value="1.0"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="env.GTK_RC_FILES" value="/etc/gtk/gtkrc:/home/andrehadm/.gtkrc-1.2-gnome2"/>
+    <property name="env.HOME" value="/home/andrehadm"/>
+    <property name="surefire.test.class.path" value="/data/Programação/WorkspaceBeans/advogado/target/test-classes:/data/Programação/WorkspaceBeans/advogado/target/classes:/home/andrehadm/.m2/repository/org/hibernate/hibernate-annotations/3.4.0.GA/hibernate-annotations-3.4.0.GA.jar:/home/andrehadm/.m2/repository/org/hibernate/ejb3-persistence/1.0.2.GA/ejb3-persistence-1.0.2.GA.jar:/home/andrehadm/.m2/repository/org/hibernate/hibernate-commons-annotations/3.1.0.GA/hibernate-commons-annotations-3.1.0.GA.jar:/home/andrehadm/.m2/repository/org/slf4j/slf4j-api/1.4.2/slf4j-api-1.4.2.jar:/home/andrehadm/.m2/repository/org/hibernate/hibernate-core/3.3.0.SP1/hibernate-core-3.3.0.SP1.jar:/home/andrehadm/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar:/home/andrehadm/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar:/home/andrehadm/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/home/andrehadm/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/home/andrehadm/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar:/home/andrehadm/.m2/repository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar:/home/andrehadm/.m2/repository/easyaccept/easyaccept/1.0.3/easyaccept-1.0.3.jar:/home/andrehadm/.m2/repository/junit/junit/4.5/junit-4.5.jar:/home/andrehadm/.m2/repository/org/slf4j/slf4j-log4j12/1.5.2/slf4j-log4j12-1.5.2.jar:/home/andrehadm/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.jar:/home/andrehadm/.m2/repository/javassist/javassist/3.4.GA/javassist-3.4.GA.jar:"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="env.LD_LIBRARY_PATH" value="/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/amd64/server:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/amd64:/usr/lib/jvm/java-6-sun-1.6.0.14/jre/../lib/amd64"/>
+    <property name="env.LS_COLORS" value="no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.svgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:"/>
+    <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi"/>
+    <property name="env.SSH_AUTH_SOCK" value="/tmp/keyring-27IC8X/socket.ssh"/>
+    <property name="env.MAVEN_OPTS" value="-Xmx512m -XX:MaxPermSize=256m"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-6-sun-1.6.0.14/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="user.dir" value="/data/Programação/WorkspaceBeans/advogado"/>
+    <property name="env.XAUTHORITY" value="/home/andrehadm/.Xauthority"/>
+    <property name="env.GTK_MODULES" value="canberra-gtk-module"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="basedir" value="/data/Programação/WorkspaceBeans/advogado"/>
+    <property name="env.ORBIT_SOCKETDIR" value="/tmp/orbit-andrehadm"/>
+    <property name="env.USERNAME" value="andrehadm"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="env.GNOME_KEYRING_SOCKET" value="/tmp/keyring-27IC8X/socket"/>
+    <property name="env.GPG_AGENT_INFO" value="/tmp/seahorse-SzTiY1/S.gpg-agent:5069:1"/>
+    <property name="java.specification.version" value="1.6"/>
+    <property name="env.LESSCLOSE" value="/usr/bin/lesspipe %s %s"/>
+  </properties>
+  <testcase time="0.026" classname="facade.AdvogadoFacadeTest" name="testCriarCliente"/>
+  <testcase time="0.007" classname="facade.AdvogadoFacadeTest" name="testPesquisarPorNome"/>
+  <testcase time="0.011" classname="facade.AdvogadoFacadeTest" name="testGetAtributo">
+    <failure message="expected:&lt;[João Pesso]a&gt; but was:&lt;[Campin]a&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[João Pesso]a&gt; but was:&lt;[Campin]a&gt;
+	at org.junit.Assert.assertEquals(Assert.java:123)
+	at org.junit.Assert.assertEquals(Assert.java:145)
+	at facade.AdvogadoFacadeTest.testGetAtributo(AdvogadoFacadeTest.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:73)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:46)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:180)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:41)
+	at org.junit.runners.ParentRunner$1.evaluate(ParentRunner.java:173)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:220)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:62)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.executeTestSet(AbstractDirectoryTestSuite.java:140)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.execute(AbstractDirectoryTestSuite.java:127)
+	at org.apache.maven.surefire.Surefire.run(Surefire.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:338)
+	at org.apache.maven.surefire.booter.SurefireBooter.main(SurefireBooter.java:997)
+</failure>
+    <system-out>getAtributo - Nome
+Hibernate: select cliente0_.id as id0_, cliente0_.bairro as bairro0_, cliente0_.celular as celular0_, cliente0_.cep as cep0_, cliente0_.cidade as cidade0_, cliente0_.cpf as cpf0_, cliente0_.email as email0_, cliente0_.endereco as endereco0_, cliente0_.nome as nome0_, cliente0_.posicao as posicao0_, cliente0_.preposto as preposto0_, cliente0_.rg as rg0_, cliente0_.telefone as telefone0_, cliente0_.uf as uf0_, cliente0_.visita as visita0_ from Cliente cliente0_ where cliente0_.id=?
+getAtributo - Cidade
+Hibernate: select cliente0_.id as id0_, cliente0_.bairro as bairro0_, cliente0_.celular as celular0_, cliente0_.cep as cep0_, cliente0_.cidade as cidade0_, cliente0_.cpf as cpf0_, cliente0_.email as email0_, cliente0_.endereco as endereco0_, cliente0_.nome as nome0_, cliente0_.posicao as posicao0_, cliente0_.preposto as preposto0_, cliente0_.rg as rg0_, cliente0_.telefone as telefone0_, cliente0_.uf as uf0_, cliente0_.visita as visita0_ from Cliente cliente0_ where cliente0_.id=?
+</system-out>
+  </testcase>
+</testsuite>
