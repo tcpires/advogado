@@ -4,9 +4,9 @@
  */
 
 /*
- * ComarcaGUI.java
+ * FaseGUI.java
  *
- * Created on 30/08/2009, 21:25:28
+ * Created on 02/09/2009, 19:22:41
  */
 
 package gui;
@@ -18,14 +18,14 @@ import javax.swing.JOptionPane;
  *
  * @author andrehadm
  */
-public class ComarcaGUI extends javax.swing.JDialog {
+public class FaseGUI extends javax.swing.JDialog {
 
     private AdvogadoFacade advogadoFacade;
 
-    /** Creates new form ComarcaGUI */
-    public ComarcaGUI(AdvogadoFacade advogadoFacade, java.awt.Frame parent, boolean modal) {
+    /** Creates new form FaseGUI */
+    public FaseGUI(AdvogadoFacade advogadeFacade, java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        this.advogadoFacade = advogadoFacade;
+        this.advogadoFacade =  advogadeFacade;
         initComponents();
     }
 
@@ -39,21 +39,21 @@ public class ComarcaGUI extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabelNome = new javax.swing.JLabel();
-        jTextFieldNome = new javax.swing.JTextField();
-        Salvar = new javax.swing.JButton();
+        jLabelFase = new javax.swing.JLabel();
+        jTextFieldFase = new javax.swing.JTextField();
+        jButtonSalvar = new javax.swing.JButton();
         jButtonFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nova Comarca"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nova Fase"));
 
-        jLabelNome.setText("Nome");
+        jLabelFase.setText("Fase");
 
-        Salvar.setText("Salvar");
-        Salvar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonSalvar.setText("Salvar");
+        jButtonSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SalvarMouseClicked(evt);
+                jButtonSalvarMouseClicked(evt);
             }
         });
 
@@ -70,27 +70,27 @@ public class ComarcaGUI extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelNome)
+                .addComponent(jLabelFase)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Salvar)
+                        .addComponent(jButtonSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonFechar)))
+                        .addComponent(jButtonFechar))
+                    .addComponent(jTextFieldFase, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNome)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabelFase)
+                    .addComponent(jTextFieldFase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Salvar)
+                    .addComponent(jButtonSalvar)
                     .addComponent(jButtonFechar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,29 +101,29 @@ public class ComarcaGUI extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalvarMouseClicked
-        String nome = jTextFieldNome.getText();
-        advogadoFacade.CriarComarca(nome);
-        JOptionPane.showMessageDialog(null, "Comarca "+nome+" salva com sucesso.");
-        this.dispose();
-    }//GEN-LAST:event_SalvarMouseClicked
-
     private void jButtonFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFecharMouseClicked
         this.dispose();
     }//GEN-LAST:event_jButtonFecharMouseClicked
 
+    private void jButtonSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalvarMouseClicked
+        String nome = jTextFieldFase.getText();
+        advogadoFacade.CriarFase(nome);
+        JOptionPane.showMessageDialog(null, "Fase "+nome+" salva com sucesso.");
+        this.dispose();
+    }//GEN-LAST:event_jButtonSalvarMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Salvar;
     private javax.swing.JButton jButtonFechar;
-    private javax.swing.JLabel jLabelNome;
+    private javax.swing.JButton jButtonSalvar;
+    private javax.swing.JLabel jLabelFase;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextFieldFase;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -10,11 +10,17 @@ import modelo.Cliente;
 import servico.ClienteDAO;
 import excecao.ClienteNaoEncontradoException;
 import java.util.List;
+import modelo.Acao;
 import modelo.Comarca;
+import modelo.Fase;
 import modelo.Juiz;
+import modelo.Processo;
 import modelo.Vara;
+import servico.AcaoDAO;
 import servico.ComarcaDAO;
+import servico.FaseDAO;
 import servico.JuizDAO;
+import servico.ProcessoDAO;
 import servico.VaraDAO;
 
 /**
@@ -27,12 +33,18 @@ public class AdvogadoFacade {
     private VaraDAO varaDAO;
     private ComarcaDAO comarcaDAO;
     private JuizDAO juizDAO;
+    private AcaoDAO acaoDAO;
+    private FaseDAO faseDAO;
+    private ProcessoDAO processoDAO;
     
     public AdvogadoFacade (){
         cliente_DAO = new ClienteDAO();
         varaDAO = new VaraDAO();
         comarcaDAO = new ComarcaDAO();
         juizDAO = new JuizDAO();
+        acaoDAO = new AcaoDAO();
+        faseDAO = new FaseDAO();
+        processoDAO = new ProcessoDAO();
     }
 
     public Cliente CriarCliente(String nome, String cpf, String rg, String endereco, String bairro, String cidade, String cep, String uf, String telefone, String celular, String email, String posicao, String visita) throws AtributoNaoEncontrado{
@@ -55,6 +67,27 @@ public class AdvogadoFacade {
         return cliente;
     }
 
+    public Processo CriarProcesso(String nome, Long comarcaId, Long varaId, Long acaoId, Long faseId, Long clienteId, Long juizId, String status, String posicao, String parteOposta, String advogadoOposto, Double valorDaCausa, Double honorarios, String observacoes, String estrategia) {
+        Processo processo = new Processo();
+        processo.setNome(nome);
+        processo.setIdComarca(comarcaId);
+        processo.setIdVara(varaId);
+        processo.setIdTipoDaAcao(acaoId);
+        processo.setIdFase(faseId);
+        processo.setIdCliente(clienteId);
+        processo.setIdJuiz(juizId);
+        processo.setStatus(status);
+        processo.setPosicao(posicao);
+        processo.setParteOposta(parteOposta);
+        processo.setAdvogadoOposto(advogadoOposto);
+        processo.setValorDaCausa(valorDaCausa);
+        processo.setHonorarios(honorarios);
+        processo.setObservacoes(observacoes);
+        processo.setEstrategia(estrategia);
+        processoDAO.salvar(processo);
+        return processo;
+    }
+
     public Vara CriarVara(String nome) {
         Vara vara = new Vara();
         vara.setNome(nome);
@@ -74,6 +107,20 @@ public class AdvogadoFacade {
         juiz.setNome(nome);
         juizDAO.salvar(juiz);
         return juiz;
+    }
+
+    public Acao CriarAcao(String nome) {
+        Acao acao = new Acao();
+        acao.setNome(nome);
+        acaoDAO.salvar(acao);
+        return acao;
+    }
+
+    public Fase CriarFase(String nome) {
+        Fase fase = new Fase();
+        fase.setNome(nome);
+        faseDAO.salvar(fase);
+        return fase;
     }
 
 
@@ -123,4 +170,13 @@ public class AdvogadoFacade {
     public List<Juiz> getTodosJuizes () {
         return juizDAO.getTodosJuizes();
     }
+
+    public List<Acao> getTodasAcoes() {
+        return acaoDAO.getTodasAcoes();
+    }
+
+    public List<Fase> getTodasFases() {
+        return faseDAO.getTodasFases();
+    }
+    
 }

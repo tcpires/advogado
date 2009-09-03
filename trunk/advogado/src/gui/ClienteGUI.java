@@ -14,9 +14,6 @@ package gui;
 import excecao.AtributoNaoEncontrado;
 import facade.AdvogadoFacade;
 import java.awt.Component;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
@@ -341,11 +338,8 @@ public class ClienteGUI extends javax.swing.JPanel {
 
     private void jButtonFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFecharMouseClicked
         habilitaBotoesBarraDeFerramentas();
-        System.out.println("Habilitei os botoes.");
         areaDeTrabalho.removeAll();
-        System.out.println("Removi tudo.");
         areaDeTrabalho.revalidate();
-        System.out.println("Revalidei.");
         areaDeTrabalho.repaint();
     }//GEN-LAST:event_jButtonFecharMouseClicked
 
@@ -353,7 +347,8 @@ public class ClienteGUI extends javax.swing.JPanel {
         for (Component botoes: barraDeFerramentas.getComponents()) {
             botoes.setEnabled(true);
         }
-        System.out.println("Terminei o habilitar.");
+        System.out.println("");
+        System.out.println("Todos os botoes habilitados.");
     }
 
     private void jButton_LimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_LimparMouseClicked
@@ -373,7 +368,8 @@ public class ClienteGUI extends javax.swing.JPanel {
         jTextField_Email.setText("");
         jTextField_Posicao.setText("");
         jFormattedTextField_Visista.setText("");
-        System.out.println("Tudo limpado.");
+        System.out.println("");
+        System.out.println("Todos os campos limpos.");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

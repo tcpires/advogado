@@ -105,15 +105,11 @@ public class ClienteDAO {
         session.beginTransaction();
         Query query = session.createQuery("Select c From Cliente c order by nome");
 
-
         //Dispensavel
         List<Cliente> clientes = query.list();
         for (Cliente cliente : clientes) {
             System.out.println("Cliente : "+ cliente.getId() + " - " + cliente.getNome());
-            
-            
         }
-
 
         return query.list();
     }

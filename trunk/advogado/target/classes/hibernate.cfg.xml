@@ -14,10 +14,8 @@
     <property name="hibernate.current_session_context_class">thread</property>
     <mapping class="modelo.Cliente"/>
     <mapping class="modelo.Comarca"/>
-    <mapping class="modelo.Fase"/>
     <mapping class="modelo.Vara"/>
     <mapping class="modelo.Juiz"/>
     <mapping class="modelo.Processo"/>
-    <mapping class="modelo.Acao"/>
   </session-factory>
 </hibernate-configuration>
