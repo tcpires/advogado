@@ -4,7 +4,9 @@
  */
 package servico;
 
+import java.util.ArrayList;
 import java.util.List;
+import excecao.ComarcaNaoEncontradaException;
 import modelo.Comarca;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -43,6 +45,41 @@ public class ComarcaDAO {
         query.setParameter("id", id);
         Comarca comarca = (Comarca) query.uniqueResult();
         return comarca;
+    }
+
+    public boolean pesquisarExistencia(String nome) {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Query query = session.createQuery("Select c From Comarca c Where c.nome like :nome");
+        query.setParameter("nome", "%" + nome + "%");
+        List<Comarca> comarcas = query.list();
+        for (Comarca comarca : comarcas) {
+            System.out.println("Comarca:"+ comarca.getNome());
+            System.out.println("Nome:"+ nome);
+            if (comarca.getNome().toLowerCase().contains(nome.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<Comarca> pesquisarPorNome(String nome) throws ComarcaNaoEncontradaException {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Query query = session.createQuery("Select c From Comarca c Where c.nome like :nome");
+        query.setParameter("nome", "%" + nome + "%");
+        List<Comarca> comarcas = query.list();
+        List<Comarca> comarcasLista = new ArrayList<Comarca>();
+        for (Comarca comarca : comarcas) {
+            if (comarca.getNome().toLowerCase().contains(nome.toLowerCase())) {
+                comarcasLista.add(comarca);
+            }
+        }
+        if (comarcasLista.isEmpty()) {
+            throw new ComarcaNaoEncontradaException("Não foi possivel encontrar " + nome);
+        }
+
+        return comarcasLista;
     }
 
 }
