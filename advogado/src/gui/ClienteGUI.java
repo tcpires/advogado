@@ -287,13 +287,8 @@ public class ClienteGUI extends javax.swing.JPanel {
         String email = jTextField_Email.getText();
         String posicao = jTextField_Posicao.getText();
         String visita = jFormattedTextField_Visista.getText();
-        
-        System.out.println("cpf: " + cpf.trim().length());
-        System.out.println("cep: " + cep.trim().length());
-        System.out.println("telefone: "+telefone.trim().length());
-        System.out.println("celular: "+celular.trim().length());
-        System.out.println("visita: "+visita.trim().length());
-        
+
+        System.out.println("Verificando atributos.");
         if (cpf.trim().length() == 9) {
             cpf = "";
         }
@@ -324,11 +319,6 @@ public class ClienteGUI extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_jButton_SalvarMouseClicked
-
-    
-
-
-    
 
     private void verificaNomeVazio(String nome) {
         if (nome.isEmpty()) {

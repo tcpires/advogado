@@ -9,6 +9,7 @@ import excecao.AtributoNaoEncontrado;
 import modelo.Cliente;
 import servico.ClienteDAO;
 import excecao.ClienteNaoEncontradoException;
+import excecao.ComarcaJaExisteException;
 import java.util.List;
 import modelo.Acao;
 import modelo.Comarca;
@@ -95,11 +96,19 @@ public class AdvogadoFacade {
         return vara;
     }
 
-    public Comarca CriarComarca(String nome) {
+    public Comarca CriarComarca(String nome) throws ComarcaJaExisteException{
         Comarca comarca = new Comarca();
         comarca.setNome(nome);
+        if (comarcaJaExiste(comarca)) {
+            throw new ComarcaJaExisteException("A comarca" + nome + "ja existe.");
+        }
         comarcaDAO.salvar(comarca);
         return comarca;
+        
+    }
+
+    private boolean comarcaJaExiste(Comarca comarca){
+        return comarcaDAO.pesquisarExistencia(comarca.getNome());
     }
 
     public Juiz CriarJuiz(String nome) {
