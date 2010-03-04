@@ -11,6 +11,7 @@
 
 package gui;
 
+import excecao.FaseJaExisteException;
 import facade.AdvogadoFacade;
 import javax.swing.JOptionPane;
 
@@ -113,8 +114,12 @@ public class FaseGUI extends javax.swing.JDialog {
 
     private void jButtonSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalvarMouseClicked
         String nome = jTextFieldFase.getText();
-        advogadoFacade.CriarFase(nome);
-        JOptionPane.showMessageDialog(null, "Fase "+nome+" salva com sucesso.");
+        try {
+            advogadoFacade.criarFase(nome);
+            JOptionPane.showMessageDialog(null, "Fase "+nome+" salva com sucesso.");
+        } catch (FaseJaExisteException e) {
+            JOptionPane.showMessageDialog(null, "Fase " + nome + " já existe.");
+        }
         this.dispose();
     }//GEN-LAST:event_jButtonSalvarMouseClicked
 

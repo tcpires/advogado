@@ -11,6 +11,7 @@
 
 package gui;
 
+import excecao.JuizJaExisteException;
 import facade.AdvogadoFacade;
 import javax.swing.JOptionPane;
 
@@ -113,8 +114,12 @@ public class JuizGUI extends javax.swing.JDialog {
 
     private void jButtonSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalvarMouseClicked
         String nome = jTextFieldNome.getText();
-        advogadoFacade.CriarJuiz(nome);
-        JOptionPane.showMessageDialog(null, "Juiz "+nome+" salvo com sucesso.");
+        try {
+            advogadoFacade.criarJuiz(nome);
+            JOptionPane.showMessageDialog(null, "Juiz "+nome+" salvo com sucesso.");
+        } catch (JuizJaExisteException e) {
+            JOptionPane.showMessageDialog(null, "Juiz "+nome+" já existe.");
+        }
         this.dispose();
     }//GEN-LAST:event_jButtonSalvarMouseClicked
 

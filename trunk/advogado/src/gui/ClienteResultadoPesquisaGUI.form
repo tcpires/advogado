@@ -3,9 +3,7 @@
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-        <TitledBorder justification="1" title="Novo Cliente"/>
-      </Border>
+      <Border info="null"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -24,62 +22,67 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel_Nome" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_CPF" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_Endereco" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_Bairro" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_Cidade" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_Telefone" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_CEP" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_Email" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_Preposto" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField_Nome" alignment="0" pref="482" max="32767" attributes="0"/>
-                  <Component id="jTextField_Endereco" alignment="0" pref="482" max="32767" attributes="0"/>
-                  <Component id="jTextField_Bairro" alignment="0" pref="482" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jFormattedTextField_CPF" min="-2" pref="114" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel_RG" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField_RG" min="-2" pref="117" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton_Salvar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton_Limpar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton_Sair" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jTextField_Email" alignment="1" pref="482" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jFormattedTextField_CEP" min="-2" pref="114" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField_Telefone" min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="jLabel_Nome" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_CPF" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_Endereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_Bairro" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_Cidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_Telefone" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_CEP" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_Email" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel_Celular" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel_UF" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jComboBox_UF" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField_Bairro" alignment="0" pref="506" max="32767" attributes="0"/>
+                          <Component id="jTextField_Email" alignment="0" pref="506" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jFormattedTextField_CPF" min="-2" pref="114" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel_Visita" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_RG" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField_Visista" pref="151" max="32767" attributes="0"/>
+                              <Component id="jTextField_RG" min="-2" pref="117" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jFormattedTextField_Celular" min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="jTextField_Endereco" alignment="0" pref="506" max="32767" attributes="0"/>
+                          <Component id="jTextField_Nome" alignment="0" pref="506" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jFormattedTextField_CEP" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                  <Component id="jFormattedTextField_Telefone" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel_Celular" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_UF" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jComboBox_UF" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel_Visita" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jFormattedTextField_Visista" min="-2" pref="80" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jFormattedTextField_Celular" min="-2" pref="114" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="95" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jTextField_Cidade" alignment="1" pref="506" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jTextField_Cidade" alignment="1" pref="482" max="32767" attributes="0"/>
-                  <Component id="jTextField_Preposto" alignment="0" pref="482" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="jLabel_Preposto" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jButton_AtualizarCliente" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField_Preposto" alignment="0" pref="506" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -142,68 +145,23 @@
                   <Component id="jLabel_Preposto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton_Limpar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_Salvar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_Sair" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jButton_AtualizarCliente" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel_Nome">
+    <Component class="javax.swing.JTextField" name="jTextField_Email">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel_Celular">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nome"/>
+        <Property name="text" type="java.lang.String" value="Celular"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_CPF">
+    <Component class="javax.swing.JLabel" name="jLabel_Email">
       <Properties>
-        <Property name="text" type="java.lang.String" value="CPF"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_Endereco">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_Nome">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_RG">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="RG"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_RG">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_Endereco">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_Bairro">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Bairro"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_Cidade">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cidade"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_Bairro">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_Cidade">
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton_Salvar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Salvar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_SalvarMouseClicked"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_CEP">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="CEP"/>
+        <Property name="text" type="java.lang.String" value="Email"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_UF">
@@ -216,17 +174,14 @@
         <Property name="text" type="java.lang.String" value="Telefone"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_Celular">
+    <Component class="javax.swing.JLabel" name="jLabel_CEP">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Celular"/>
+        <Property name="text" type="java.lang.String" value="CEP"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_Email">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Email"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="jTextField_Bairro">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_Email">
+    <Component class="javax.swing.JTextField" name="jTextField_Cidade">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_Visita">
       <Properties>
@@ -302,28 +257,56 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_Sair">
+    <Component class="javax.swing.JLabel" name="jLabel_CPF">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Sair"/>
+        <Property name="text" type="java.lang.String" value="CPF"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel_Nome">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nome"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel_Cidade">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cidade"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField_RG">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel_RG">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="RG"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField_Nome">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel_Endereco">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel_Bairro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Bairro"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField_Endereco">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton_AtualizarCliente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Atualizar"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_SairMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_AtualizarClienteMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_Limpar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Limpar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton_LimparMouseClicked"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="jTextField_Preposto">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_Preposto">
       <Properties>
         <Property name="text" type="java.lang.String" value="Preposto"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_Preposto">
     </Component>
   </SubComponents>
 </Form>
