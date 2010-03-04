@@ -6,6 +6,7 @@
 package facade;
 
 import excecao.AtributoNaoEncontrado;
+import excecao.CPFInvalidoException;
 import modelo.Cliente;
 import excecao.ClienteNaoEncontradoException;
 import java.util.List;
@@ -45,7 +46,7 @@ public class AdvogadoFacadeTest {
      * Test of CriarCliente method, of class AdvogadoFacade.
      */
     @Test
-    public void testCriarCliente() throws AtributoNaoEncontrado {
+    public void testCriarCliente() throws AtributoNaoEncontrado, CPFInvalidoException {
         System.out.println("CriarCliente");
         String nome = "Andre";
         String cpf = "12345678901";
@@ -63,7 +64,7 @@ public class AdvogadoFacadeTest {
 
 
         AdvogadoFacade instance = new AdvogadoFacade();
-        Cliente cliente = instance.CriarCliente(nome, cpf, rg, endereco, bairro, cidade, cep, uf, telefone, celular, email, posicao, visita);
+        Cliente cliente = instance.criarCliente(nome, cpf, rg, endereco, bairro, cidade, cep, uf, telefone, celular, email, posicao, visita);
         assertEquals("Andre", cliente.getNome());
     }
 
