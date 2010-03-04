@@ -11,6 +11,7 @@
 
 package gui;
 
+import excecao.VaraJaExisteException;
 import facade.AdvogadoFacade;
 import javax.swing.JOptionPane;
 
@@ -110,8 +111,12 @@ public class VaraGUI extends javax.swing.JDialog {
 
     private void jButtonSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalvarMouseClicked
         String nome = jTextFieldNome.getText();
-        advogadoFacade.CriarVara(nome);
-        JOptionPane.showMessageDialog(null, "Vara "+nome+" salva com sucesso.");
+        try {
+            advogadoFacade.criarVara(nome);
+            JOptionPane.showMessageDialog(null, "Vara "+nome+" salva com sucesso.");
+        } catch (VaraJaExisteException e){
+            JOptionPane.showMessageDialog(null, "Vara "+nome+" já existe.");
+        }
         this.dispose();
     }//GEN-LAST:event_jButtonSalvarMouseClicked
 

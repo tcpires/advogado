@@ -11,15 +11,29 @@
 
 package gui;
 
+import facade.AdvogadoFacade;
+import java.awt.Component;
+import javax.swing.JPanel;
+import javax.swing.JToolBar;
+import modelo.Cliente;
+
 /**
  *
  * @author andrehadm
  */
 public class ClientePesquisaGUI extends javax.swing.JPanel {
 
+    private AdvogadoFacade advogadoFacade;
+    private JPanel areaDeTrabalho;
+    private JToolBar barraDeFerramentas;
+
     /** Creates new form ClientePesquisaGUI */
-    public ClientePesquisaGUI() {
+    public ClientePesquisaGUI(JPanel areaDeTrabalho, JToolBar barra, AdvogadoFacade advogadoFacade) {
+        this.advogadoFacade = advogadoFacade;
+        this.areaDeTrabalho = areaDeTrabalho;
+        this.barraDeFerramentas = barra;
         initComponents();
+        carregaCliente();
     }
 
     /** This method is called from within the constructor to
@@ -31,15 +45,37 @@ public class ClientePesquisaGUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
-        jButtonEditar = new javax.swing.JButton();
+        jComboBoxCliente = new javax.swing.JComboBox();
+        jButtonCarregar = new javax.swing.JButton();
+        jPanelArea = new javax.swing.JPanel();
+        jButtonSair = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisa Clientes"));
 
-        jScrollPane1.setViewportView(jList1);
+        jButtonCarregar.setText("Carregar");
+        jButtonCarregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCarregarMouseClicked(evt);
+            }
+        });
 
-        jButtonEditar.setText("Editar");
+        javax.swing.GroupLayout jPanelAreaLayout = new javax.swing.GroupLayout(jPanelArea);
+        jPanelArea.setLayout(jPanelAreaLayout);
+        jPanelAreaLayout.setHorizontalGroup(
+            jPanelAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 543, Short.MAX_VALUE)
+        );
+        jPanelAreaLayout.setVerticalGroup(
+            jPanelAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 379, Short.MAX_VALUE)
+        );
+
+        jButtonSair.setText("Sair");
+        jButtonSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonSairMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -47,29 +83,69 @@ public class ClientePesquisaGUI extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+                .addComponent(jComboBoxCliente, 0, 410, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonEditar)
+                .addComponent(jButtonCarregar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonSair)
                 .addContainerGap())
+            .addComponent(jPanelArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2))
-                    .addComponent(jButtonEditar))
-                .addContainerGap(342, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSair)
+                    .addComponent(jButtonCarregar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void habilitaBotoesBarraDeFerramentas(){
+        for (Component botoes: barraDeFerramentas.getComponents()) {
+            botoes.setEnabled(true);
+        }
+        System.out.println("");
+        System.out.println("Todos os botoes habilitados.");
+    }
+
+    private void jButtonSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSairMouseClicked
+        habilitaBotoesBarraDeFerramentas();
+        areaDeTrabalho.removeAll();
+        areaDeTrabalho.revalidate();
+        areaDeTrabalho.repaint();
+    }//GEN-LAST:event_jButtonSairMouseClicked
+
+    private void jButtonCarregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCarregarMouseClicked
+        ClienteResultadoPesquisaGUI clienteResultadoPesquisaGUI = new ClienteResultadoPesquisaGUI( (Cliente) jComboBoxCliente.getSelectedItem(), advogadoFacade);
+        clienteResultadoPesquisaGUI.setSize(jPanelArea.getWidth() - 15, jPanelArea.getHeight() - 15 );
+        jPanelArea.removeAll();
+        jPanelArea.add(clienteResultadoPesquisaGUI);
+        jPanelArea.revalidate();
+        System.out.println("");
+        System.out.println("Cliente Pesquisa.");
+    }//GEN-LAST:event_jButtonCarregarMouseClicked
+
+    private void carregaCliente () {
+        jComboBoxCliente.removeAllItems();
+        System.out.println("");
+        System.out.println("Carregando clientes");
+        for (Cliente cliente : advogadoFacade.getTodosClientes()) {
+            jComboBoxCliente.addItem(cliente);
+            System.out.println("Cliente: "+ cliente.getId() + " - " + cliente.getNome());
+        }
+        System.out.println("Tamanho da lista de clientes: " + jComboBoxCliente.getItemCount());
+        System.out.println("Clientes carregados.");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonEditar;
-    private javax.swing.JList jList1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jButtonCarregar;
+    private javax.swing.JButton jButtonSair;
+    private javax.swing.JComboBox jComboBoxCliente;
+    private javax.swing.JPanel jPanelArea;
     // End of variables declaration//GEN-END:variables
 
 }

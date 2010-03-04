@@ -111,7 +111,7 @@ public class ComarcaGUI extends javax.swing.JDialog {
     private void SalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalvarMouseClicked
         String nome = jTextFieldNome.getText();
         try {
-            advogadoFacade.CriarComarca(nome);
+            advogadoFacade.criarComarca(nome);
             JOptionPane.showMessageDialog(null, "Comarca "+nome+" salva com sucesso.");
         } catch (ComarcaJaExisteException e) {
             JOptionPane.showMessageDialog(null, "Comarca "+nome+" já existe.");

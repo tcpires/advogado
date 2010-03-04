@@ -4,37 +4,100 @@
  */
 
 /*
- * ClienteGUI.java
+ * ClienteResultadoPesquisaGUI.java
  *
- * Created on 17/07/2009, 17:26:19
+ * Created on 28/02/2010, 19:44:50
  */
 package gui;
 
 import excecao.AtributoNaoEncontrado;
 import excecao.CPFInvalidoException;
 import facade.AdvogadoFacade;
-import java.awt.Component;
-import javax.swing.JOptionPane; 
-import javax.swing.JPanel;
-import javax.swing.JToolBar;
+import javax.swing.JOptionPane;
+import modelo.Cliente;
 
 /**
  *
  * @author andrehadm
  */
-public class ClienteGUI extends javax.swing.JPanel {
+public class ClienteResultadoPesquisaGUI extends javax.swing.JPanel {
 
-    private AdvogadoFacade advogadoFacade;
-    private JPanel areaDeTrabalho;
-    private JToolBar barraDeFerramentas;
+    AdvogadoFacade advogadoFacade;
+    Cliente cliente;
 
-    /** Creates new form ClienteGUI */
-    public ClienteGUI(JPanel areaDeTrabalho, JToolBar barra, AdvogadoFacade advogadoFacade) {
+    /** Creates new form ClienteResultadoPesquisaGUI */
+    public ClienteResultadoPesquisaGUI(Cliente cliente, AdvogadoFacade advogadoFacade) {
         this.advogadoFacade = advogadoFacade;
-        this.areaDeTrabalho = areaDeTrabalho;
-        this.barraDeFerramentas = barra;
+        this.cliente = cliente;
         initComponents();
-        this.setVisible(true);
+        carregaCliente(cliente);
+    }
+
+    private void carregaCliente(Cliente cliente) {
+
+        System.out.println("");
+        System.out.println("Carregando cliente");
+
+        //Nome
+        jTextField_Nome.setText(cliente.getNome());
+
+        //CPF
+        jFormattedTextField_CPF.setText(cliente.getCpf());
+
+        //Bairro
+        if (!cliente.getBairro().isEmpty()) {
+            jTextField_Bairro.setText(cliente.getBairro());
+        }
+
+        //Celular
+        if (!cliente.getCelular().isEmpty()) {
+            jFormattedTextField_Celular.setText(cliente.getCelular());
+        }
+
+        //Cep
+        if (!cliente.getCep().isEmpty()) {
+            jFormattedTextField_CEP.setText(cliente.getCep());
+        }
+
+        //Cidade
+        if (!cliente.getCidade().isEmpty()) {
+            jTextField_Cidade.setText(cliente.getCidade());
+        }
+
+        //Email
+        if (!cliente.getEmail().isEmpty()) {
+            jTextField_Email.setText(cliente.getEmail());
+        }
+
+        //Endereço
+        if (!cliente.getEndereco().isEmpty()) {
+            jTextField_Endereco.setText(cliente.getEndereco());
+        }
+
+        //RG
+        if (!cliente.getRg().isEmpty()) {
+            jTextField_RG.setText(cliente.getRg());
+        }
+
+        //Telefone
+        if (!cliente.getTelefone().isEmpty()) {
+            jFormattedTextField_Telefone.setText(cliente.getTelefone());
+        }
+
+        //Visita
+        if (!cliente.getVisita().isEmpty()) {
+            jFormattedTextField_Visista.setText(cliente.getVisita());
+        }
+
+        //Preposto
+        if (!cliente.getPreposto().isEmpty()) {
+            jTextField_Preposto.setText(cliente.getPreposto());
+        }
+
+        //UF
+        jComboBox_UF.setSelectedItem(cliente.getUf());
+
+        System.out.println("Cliente Carregado");
     }
 
     /** This method is called from within the constructor to
@@ -46,24 +109,14 @@ public class ClienteGUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel_Nome = new javax.swing.JLabel();
-        jLabel_CPF = new javax.swing.JLabel();
-        jLabel_Endereco = new javax.swing.JLabel();
-        jTextField_Nome = new javax.swing.JTextField();
-        jLabel_RG = new javax.swing.JLabel();
-        jTextField_RG = new javax.swing.JTextField();
-        jTextField_Endereco = new javax.swing.JTextField();
-        jLabel_Bairro = new javax.swing.JLabel();
-        jLabel_Cidade = new javax.swing.JLabel();
-        jTextField_Bairro = new javax.swing.JTextField();
-        jTextField_Cidade = new javax.swing.JTextField();
-        jButton_Salvar = new javax.swing.JButton();
-        jLabel_CEP = new javax.swing.JLabel();
-        jLabel_UF = new javax.swing.JLabel();
-        jLabel_Telefone = new javax.swing.JLabel();
+        jTextField_Email = new javax.swing.JTextField();
         jLabel_Celular = new javax.swing.JLabel();
         jLabel_Email = new javax.swing.JLabel();
-        jTextField_Email = new javax.swing.JTextField();
+        jLabel_UF = new javax.swing.JLabel();
+        jLabel_Telefone = new javax.swing.JLabel();
+        jLabel_CEP = new javax.swing.JLabel();
+        jTextField_Bairro = new javax.swing.JTextField();
+        jTextField_Cidade = new javax.swing.JTextField();
         jLabel_Visita = new javax.swing.JLabel();
         jComboBox_UF = new javax.swing.JComboBox();
         jFormattedTextField_CPF = new javax.swing.JFormattedTextField();
@@ -71,41 +124,30 @@ public class ClienteGUI extends javax.swing.JPanel {
         jFormattedTextField_Telefone = new javax.swing.JFormattedTextField();
         jFormattedTextField_Celular = new javax.swing.JFormattedTextField();
         jFormattedTextField_Visista = new javax.swing.JFormattedTextField();
-        jButton_Sair = new javax.swing.JButton();
-        jButton_Limpar = new javax.swing.JButton();
-        jLabel_Preposto = new javax.swing.JLabel();
+        jLabel_CPF = new javax.swing.JLabel();
+        jLabel_Nome = new javax.swing.JLabel();
+        jLabel_Cidade = new javax.swing.JLabel();
+        jTextField_RG = new javax.swing.JTextField();
+        jLabel_RG = new javax.swing.JLabel();
+        jTextField_Nome = new javax.swing.JTextField();
+        jLabel_Endereco = new javax.swing.JLabel();
+        jLabel_Bairro = new javax.swing.JLabel();
+        jTextField_Endereco = new javax.swing.JTextField();
+        jButton_AtualizarCliente = new javax.swing.JButton();
         jTextField_Preposto = new javax.swing.JTextField();
+        jLabel_Preposto = new javax.swing.JLabel();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Novo Cliente", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        setBorder(null);
 
-        jLabel_Nome.setText("Nome");
+        jLabel_Celular.setText("Celular");
 
-        jLabel_CPF.setText("CPF");
-
-        jLabel_Endereco.setText("Endereço");
-
-        jLabel_RG.setText("RG");
-
-        jLabel_Bairro.setText("Bairro");
-
-        jLabel_Cidade.setText("Cidade");
-
-        jButton_Salvar.setText("Salvar");
-        jButton_Salvar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_SalvarMouseClicked(evt);
-            }
-        });
-
-        jLabel_CEP.setText("CEP");
+        jLabel_Email.setText("Email");
 
         jLabel_UF.setText("UF");
 
         jLabel_Telefone.setText("Telefone");
 
-        jLabel_Celular.setText("Celular");
-
-        jLabel_Email.setText("Email");
+        jLabel_CEP.setText("CEP");
 
         jLabel_Visita.setText("Próx. Visita");
 
@@ -141,17 +183,22 @@ public class ClienteGUI extends javax.swing.JPanel {
             ex.printStackTrace();
         }
 
-        jButton_Sair.setText("Sair");
-        jButton_Sair.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_SairMouseClicked(evt);
-            }
-        });
+        jLabel_CPF.setText("CPF");
 
-        jButton_Limpar.setText("Limpar");
-        jButton_Limpar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel_Nome.setText("Nome");
+
+        jLabel_Cidade.setText("Cidade");
+
+        jLabel_RG.setText("RG");
+
+        jLabel_Endereco.setText("Endereço");
+
+        jLabel_Bairro.setText("Bairro");
+
+        jButton_AtualizarCliente.setText("Atualizar");
+        jButton_AtualizarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_LimparMouseClicked(evt);
+                jButton_AtualizarClienteMouseClicked(evt);
             }
         });
 
@@ -162,54 +209,56 @@ public class ClienteGUI extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel_Nome)
-                    .addComponent(jLabel_CPF)
-                    .addComponent(jLabel_Endereco)
-                    .addComponent(jLabel_Bairro)
-                    .addComponent(jLabel_Cidade)
-                    .addComponent(jLabel_Telefone)
-                    .addComponent(jLabel_CEP)
-                    .addComponent(jLabel_Email)
-                    .addComponent(jLabel_Preposto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField_Nome, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
-                    .addComponent(jTextField_Endereco, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
-                    .addComponent(jTextField_Bairro, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jFormattedTextField_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel_RG)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton_Salvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton_Limpar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton_Sair))
-                    .addComponent(jTextField_Email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFormattedTextField_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_Nome)
+                            .addComponent(jLabel_CPF)
+                            .addComponent(jLabel_Endereco)
+                            .addComponent(jLabel_Bairro)
+                            .addComponent(jLabel_Cidade)
+                            .addComponent(jLabel_Telefone)
+                            .addComponent(jLabel_CEP)
+                            .addComponent(jLabel_Email))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_Celular)
-                            .addComponent(jLabel_UF))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField_Bairro, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                            .addComponent(jTextField_Email, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox_UF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jFormattedTextField_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel_Visita)
+                                .addComponent(jLabel_RG)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField_Visista, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
-                            .addComponent(jFormattedTextField_Celular, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jTextField_Cidade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
-                    .addComponent(jTextField_Preposto, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE))
+                                .addComponent(jTextField_RG, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField_Endereco, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                            .addComponent(jTextField_Nome, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jFormattedTextField_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFormattedTextField_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel_Celular)
+                                    .addComponent(jLabel_UF))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jComboBox_UF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel_Visita)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jFormattedTextField_Visista, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jFormattedTextField_Celular, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE))
+                            .addComponent(jTextField_Cidade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel_Preposto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton_AtualizarCliente)
+                            .addComponent(jTextField_Preposto, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -260,15 +309,12 @@ public class ClienteGUI extends javax.swing.JPanel {
                     .addComponent(jTextField_Preposto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_Preposto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Limpar)
-                    .addComponent(jButton_Salvar)
-                    .addComponent(jButton_Sair))
-                .addContainerGap())
+                .addComponent(jButton_AtualizarCliente)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_SalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_SalvarMouseClicked
+    private void jButton_AtualizarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_AtualizarClienteMouseClicked
         String nome = jTextField_Nome.getText();
         String cpf = jFormattedTextField_CPF.getText();
         String rg = jTextField_RG.getText();
@@ -283,7 +329,6 @@ public class ClienteGUI extends javax.swing.JPanel {
         String visita = jFormattedTextField_Visista.getText();
         String preposto = jTextField_Preposto.getText();
 
-        System.out.println("");
         System.out.println("Verificando atributos.");
         if (cpf.trim().length() == 9) {
             cpf = "";
@@ -301,23 +346,36 @@ public class ClienteGUI extends javax.swing.JPanel {
             visita = "";
         }
 
+        //Atualizando cliente
+        cliente.setNome(nome);
+        cliente.setBairro(bairro);
+        cliente.setCelular(celular);
+        cliente.setCep(cep);
+        cliente.setCidade(cidade);
+        cliente.setCpf(cpf);
+        cliente.setEmail(email);
+        cliente.setEndereco(endereco);
+        cliente.setRg(rg);
+        cliente.setTelefone(telefone);
+        cliente.setUf(uf);
+        cliente.setVisita(visita);
+        cliente.setPreposto(preposto);
+
         try {
-            advogadoFacade.criarCliente(nome, cpf, rg, endereco, bairro, cidade, cep, uf, telefone, celular, email, visita, preposto);
-            JOptionPane.showMessageDialog(null, "Cliente " + nome + " salvo com sucesso.");
-            limpaCampos();
+            advogadoFacade.atualizarCliente(cliente);
+            JOptionPane.showMessageDialog(null, "Cliente " + nome + " atualizado com sucesso.");
         } catch (AtributoNaoEncontrado ex) {
             System.out.println("");
             System.out.println("Erro: Falta algum atributo.");
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            if (ex.getMessage().contains("Nome")){
+            if (ex.getMessage().contains("Nome")) {
                 jTextField_Nome.setText("");
                 jTextField_Nome.requestFocus();
             }
-            if (ex.getMessage().contains("CPF")){
+            if (ex.getMessage().contains("CPF")) {
                 jFormattedTextField_CPF.setText("");
                 jFormattedTextField_CPF.requestFocus();
             }
-
         } catch (CPFInvalidoException ex) {
             System.out.println("");
             System.out.println("Erro: CPF inválido.");
@@ -326,46 +384,9 @@ public class ClienteGUI extends javax.swing.JPanel {
             jFormattedTextField_CPF.requestFocus();
         }
 
-    }//GEN-LAST:event_jButton_SalvarMouseClicked
-
-    private void jButton_SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_SairMouseClicked
-        habilitaBotoesBarraDeFerramentas();
-        areaDeTrabalho.removeAll();
-        areaDeTrabalho.revalidate();
-        areaDeTrabalho.repaint();
-    }//GEN-LAST:event_jButton_SairMouseClicked
-
-    private void habilitaBotoesBarraDeFerramentas() {
-        for (Component botoes : barraDeFerramentas.getComponents()) {
-            botoes.setEnabled(true);
-        }
-        System.out.println("");
-        System.out.println("Todos os botoes habilitados.");
-    }
-
-    private void jButton_LimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_LimparMouseClicked
-        limpaCampos();
-    }//GEN-LAST:event_jButton_LimparMouseClicked
-
-    private void limpaCampos() {
-        jTextField_Nome.setText("");
-        jFormattedTextField_CPF.setText("");
-        jTextField_RG.setText("");
-        jTextField_Endereco.setText("");
-        jTextField_Bairro.setText("");
-        jTextField_Cidade.setText("");
-        jFormattedTextField_CEP.setText("");
-        jFormattedTextField_Telefone.setText("");
-        jFormattedTextField_Celular.setText("");
-        jTextField_Email.setText("");
-        jFormattedTextField_Visista.setText("");
-        System.out.println("");
-        System.out.println("Todos os campos limpos.");
-    }
+    }//GEN-LAST:event_jButton_AtualizarClienteMouseClicked
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Limpar;
-    private javax.swing.JButton jButton_Sair;
-    private javax.swing.JButton jButton_Salvar;
+    private javax.swing.JButton jButton_AtualizarCliente;
     private javax.swing.JComboBox jComboBox_UF;
     private javax.swing.JFormattedTextField jFormattedTextField_CEP;
     private javax.swing.JFormattedTextField jFormattedTextField_CPF;

@@ -11,6 +11,7 @@
 
 package gui;
 
+import excecao.AcaoJaExisteException;
 import facade.AdvogadoFacade;
 import javax.swing.JOptionPane;
 
@@ -113,8 +114,12 @@ public class AcaoGUI extends javax.swing.JDialog {
 
     private void jButtonSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalvarMouseClicked
         String nome = jTextFieldTipoDeAcao.getText();
-        advogadoFacade.CriarAcao(nome);
-        JOptionPane.showMessageDialog(null, "Tipo de Ação "+nome+" salva com sucesso.");
+        try {
+            advogadoFacade.criarAcao(nome);
+            JOptionPane.showMessageDialog(null, "Tipo de Ação "+nome+" salva com sucesso.");
+        } catch (AcaoJaExisteException e) {
+            JOptionPane.showMessageDialog(null, "Tipo de Ação "+nome+" já existe.");
+        }
         this.dispose();
     }//GEN-LAST:event_jButtonSalvarMouseClicked
 

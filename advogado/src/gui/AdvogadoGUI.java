@@ -45,6 +45,7 @@ public class AdvogadoGUI extends javax.swing.JFrame {
         jButtonClientePesquisa = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         jButtonProcessoNovo = new javax.swing.JButton();
+        jButtonProcessosPesquisa = new javax.swing.JButton();
         jButtonTeste = new javax.swing.JButton();
         jPanelAreaDeTrabalho = new javax.swing.JPanel();
         barraDeMenu = new javax.swing.JMenuBar();
@@ -87,6 +88,11 @@ public class AdvogadoGUI extends javax.swing.JFrame {
         jButtonClientePesquisa.setFocusable(false);
         jButtonClientePesquisa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonClientePesquisa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonClientePesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonClientePesquisaMouseClicked(evt);
+            }
+        });
         barraDeFerramentas.add(jButtonClientePesquisa);
         barraDeFerramentas.add(jSeparator1);
 
@@ -100,6 +106,17 @@ public class AdvogadoGUI extends javax.swing.JFrame {
             }
         });
         barraDeFerramentas.add(jButtonProcessoNovo);
+
+        jButtonProcessosPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/processos.png"))); // NOI18N
+        jButtonProcessosPesquisa.setFocusable(false);
+        jButtonProcessosPesquisa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonProcessosPesquisa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProcessosPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonProcessosPesquisaMouseClicked(evt);
+            }
+        });
+        barraDeFerramentas.add(jButtonProcessosPesquisa);
 
         jButtonTeste.setText("Teste");
         jButtonTeste.setFocusable(false);
@@ -200,6 +217,32 @@ public class AdvogadoGUI extends javax.swing.JFrame {
         tl.setVisible(true);
     }//GEN-LAST:event_jButtonTesteMouseClicked
 
+    private void jButtonClientePesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonClientePesquisaMouseClicked
+        if (jButtonClientePesquisa.isEnabled()) {
+            ClientePesquisaGUI clientePesquisaGUI = new ClientePesquisaGUI(jPanelAreaDeTrabalho, barraDeFerramentas, advogadoFacade);
+            clientePesquisaGUI.setSize(jPanelAreaDeTrabalho.getWidth() - 15, jPanelAreaDeTrabalho.getHeight() - 15 );
+            jPanelAreaDeTrabalho.removeAll();
+            jPanelAreaDeTrabalho.add(clientePesquisaGUI);
+            jPanelAreaDeTrabalho.revalidate();
+            System.out.println(barraDeFerramentas.getComponentCount());
+            desabilitaBotoesBarraDeFerramentas();
+            System.out.println("Cliente Pesquisa.");
+        }
+    }//GEN-LAST:event_jButtonClientePesquisaMouseClicked
+
+    private void jButtonProcessosPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProcessosPesquisaMouseClicked
+        if (jButtonProcessosPesquisa.isEnabled()) {
+            ProcessoPesquisaGUI processoPesquisaGUI = new ProcessoPesquisaGUI(jPanelAreaDeTrabalho, barraDeFerramentas, advogadoFacade);
+            processoPesquisaGUI.setSize(jPanelAreaDeTrabalho.getWidth() - 15, jPanelAreaDeTrabalho.getHeight() - 15 );
+            jPanelAreaDeTrabalho.removeAll();
+            jPanelAreaDeTrabalho.add(processoPesquisaGUI);
+            jPanelAreaDeTrabalho.revalidate();
+            System.out.println(barraDeFerramentas.getComponentCount());
+            desabilitaBotoesBarraDeFerramentas();
+            System.out.println("Processo Pesquisa.");
+        }
+    }//GEN-LAST:event_jButtonProcessosPesquisaMouseClicked
+
     //Ainda não está sendo usado
     public void atualizarAreaDeTrabalho() {
         jPanelAreaDeTrabalho.removeAll();
@@ -246,6 +289,7 @@ public class AdvogadoGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonClienteNovo;
     private javax.swing.JButton jButtonClientePesquisa;
     private javax.swing.JButton jButtonProcessoNovo;
+    private javax.swing.JButton jButtonProcessosPesquisa;
     private javax.swing.JButton jButtonTeste;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JMenu jMenu2;

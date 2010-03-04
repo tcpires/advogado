@@ -4,50 +4,39 @@
  */
 
 /*
- * ProcessoGUI.java
+ * ProcessoResultadoPesquisaGUI.java
  *
- * Created on 09/08/2009, 21:38:29
+ * Created on 01/03/2010, 18:48:07
  */
-
 package gui;
 
 import excecao.AtributoNaoEncontrado;
 import excecao.ProcessoInvalidoException;
 import facade.AdvogadoFacade;
-import java.awt.Component;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JToolBar;
 import modelo.Acao;
 import modelo.Cliente;
 import modelo.Comarca;
 import modelo.Fase;
 import modelo.Juiz;
+import modelo.Processo;
 import modelo.Vara;
 
 /**
  *
- * @author andrehadm
+ * @author andrehadm 
  */
-public class ProcessoGUI extends javax.swing.JPanel {
+public class ProcessoResultadoPesquisaGUI extends javax.swing.JPanel {
 
-    private AdvogadoFacade advogadoFacade;
-    private JPanel areaDeTrabalho;
-    private JToolBar barraDeFerramentas;
+    AdvogadoFacade advogadoFacade;
+    Processo processo;
 
-    /** Creates new form ClienteGUI */
-    public ProcessoGUI(JPanel areaDeTrabalho, JToolBar barra, AdvogadoFacade advogadoFacade) {
+    /** Creates new form ProcessoResultadoPesquisaGUI */
+    public ProcessoResultadoPesquisaGUI(Processo processo, AdvogadoFacade advogadoFacade) {
         this.advogadoFacade = advogadoFacade;
-        this.areaDeTrabalho = areaDeTrabalho;
-        this.barraDeFerramentas = barra;
+        this.processo = processo;
         initComponents();
-        carregaComarca();
-        carregaVara();
-        carregaCliente();
-        carregaJuiz();
-        carregaFase();
-        carregaAcao();
-        this.setVisible(true);
+        carregaProcesso(processo);
     }
 
     /** This method is called from within the constructor to
@@ -59,65 +48,47 @@ public class ProcessoGUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel_Processo = new javax.swing.JLabel();
-        jTextField_Processo = new javax.swing.JTextField();
-        jLabel_Comarca = new javax.swing.JLabel();
-        jComboBox_Comarca = new javax.swing.JComboBox();
-        jLabel_Vara = new javax.swing.JLabel();
-        jCombo_BoxVara = new javax.swing.JComboBox();
-        jLabel_TipoDaAcao = new javax.swing.JLabel();
-        jComboBox_TipoDaAcao = new javax.swing.JComboBox();
-        jButton_NovoTipoDaAcao = new javax.swing.JButton();
-        jLabel_Fase = new javax.swing.JLabel();
-        jComboBox_Fase = new javax.swing.JComboBox();
-        jButton_NovaFase = new javax.swing.JButton();
         jLabel_Cliente = new javax.swing.JLabel();
         jComboBox_Cliente = new javax.swing.JComboBox();
-        jLabel_Status = new javax.swing.JLabel();
-        jComboBox_Status1 = new javax.swing.JComboBox();
+        jComboBox_Fase = new javax.swing.JComboBox();
+        jButton_NovaFase = new javax.swing.JButton();
         jComboBox_Status2 = new javax.swing.JComboBox();
         jLabel_ParteOposta = new javax.swing.JLabel();
-        jTextField_ParteOposta = new javax.swing.JTextField();
-        jLabel_AdvogadoOposto = new javax.swing.JLabel();
-        jTextField_AdvogadoOposto = new javax.swing.JTextField();
-        jLabel_Juiz = new javax.swing.JLabel();
-        jComboBox_Juiz = new javax.swing.JComboBox();
-        jButton_NovoJuiz = new javax.swing.JButton();
-        jLabel_ValorDaCausa = new javax.swing.JLabel();
-        jLabel_Honorarios = new javax.swing.JLabel();
+        jLabel_Status = new javax.swing.JLabel();
+        jComboBox_Status1 = new javax.swing.JComboBox();
+        jButton_NovaComarca = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea_Estrategia = new javax.swing.JTextArea();
+        jLabel_Estrategia = new javax.swing.JLabel();
         jLabel_Observacoes = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea_Observacoes = new javax.swing.JTextArea();
-        jLabel_Estrategia = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea_Estrategia = new javax.swing.JTextArea();
-        jButton_Salvar = new javax.swing.JButton();
-        jButton_Limpar = new javax.swing.JButton();
-        jButton_Sair = new javax.swing.JButton();
-        jButton_NovaComarca = new javax.swing.JButton();
+        jLabel_Fase = new javax.swing.JLabel();
+        jButton_NovoTipoDaAcao = new javax.swing.JButton();
+        jLabel_Juiz = new javax.swing.JLabel();
+        jComboBox_Comarca = new javax.swing.JComboBox();
+        jComboBox_Juiz = new javax.swing.JComboBox();
+        jLabel_Vara = new javax.swing.JLabel();
+        jButton_NovoJuiz = new javax.swing.JButton();
+        jComboBox_Vara = new javax.swing.JComboBox();
+        jLabel_ValorDaCausa = new javax.swing.JLabel();
+        jLabel_TipoDaAcao = new javax.swing.JLabel();
+        jLabel_Honorarios = new javax.swing.JLabel();
+        jLabel_Processo = new javax.swing.JLabel();
+        jTextField_Processo = new javax.swing.JTextField();
+        jLabel_Comarca = new javax.swing.JLabel();
+        jComboBox_TipoDaAcao = new javax.swing.JComboBox();
         jButton_NovaVara = new javax.swing.JButton();
-        jFormattedTextField_Honorários = new javax.swing.JFormattedTextField();
+        jTextField_ParteOposta = new javax.swing.JTextField();
+        jTextField_AdvogadoOposto = new javax.swing.JTextField();
+        jLabel_AdvogadoOposto = new javax.swing.JLabel();
+        jButton_Atualizar = new javax.swing.JButton();
+        jFormattedTextField_Honorarios = new javax.swing.JFormattedTextField();
         jFormattedTextField_ValorDaCausa = new javax.swing.JFormattedTextField();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Novo Processo", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
-        setPreferredSize(new java.awt.Dimension(543, 381));
+        setBorder(null);
 
-        jLabel_Processo.setText("Processo");
-
-        jLabel_Comarca.setText("Comarca");
-
-        jLabel_Vara.setText("Vara");
-
-        jLabel_TipoDaAcao.setText("Tipo da Ação");
-
-        jButton_NovoTipoDaAcao.setText("Novo");
-        jButton_NovoTipoDaAcao.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_NovoTipoDaAcaoMouseClicked(evt);
-            }
-        });
-
-        jLabel_Fase.setText("Fase");
+        jLabel_Cliente.setText("Cliente");
 
         jButton_NovaFase.setText("Novo");
         jButton_NovaFase.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -126,19 +97,45 @@ public class ProcessoGUI extends javax.swing.JPanel {
             }
         });
 
-        jLabel_Cliente.setText("Cliente");
+        jComboBox_Status2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Autor", "Litisconsorte", "Réu" }));
+
+        jLabel_ParteOposta.setText("Parte Oposta");
 
         jLabel_Status.setText("Status");
 
         jComboBox_Status1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ativo", "Inativo" }));
 
-        jComboBox_Status2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Autor", "Litisconsorte", "Réu" }));
+        jButton_NovaComarca.setText("Novo");
+        jButton_NovaComarca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_NovaComarcaMouseClicked(evt);
+            }
+        });
 
-        jLabel_ParteOposta.setText("Parte Oposta");
+        jTextArea_Estrategia.setColumns(20);
+        jTextArea_Estrategia.setRows(5);
+        jScrollPane2.setViewportView(jTextArea_Estrategia);
 
-        jLabel_AdvogadoOposto.setText("Advogado Oposto");
+        jLabel_Estrategia.setText("Estratégia");
+
+        jLabel_Observacoes.setText("Observações");
+
+        jTextArea_Observacoes.setColumns(20);
+        jTextArea_Observacoes.setRows(5);
+        jScrollPane1.setViewportView(jTextArea_Observacoes);
+
+        jLabel_Fase.setText("Fase");
+
+        jButton_NovoTipoDaAcao.setText("Novo");
+        jButton_NovoTipoDaAcao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_NovoTipoDaAcaoMouseClicked(evt);
+            }
+        });
 
         jLabel_Juiz.setText("Juiz");
+
+        jLabel_Vara.setText("Vara");
 
         jButton_NovoJuiz.setText("Novo");
         jButton_NovoJuiz.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,47 +146,13 @@ public class ProcessoGUI extends javax.swing.JPanel {
 
         jLabel_ValorDaCausa.setText("Valor da Causa");
 
+        jLabel_TipoDaAcao.setText("Tipo da Ação");
+
         jLabel_Honorarios.setText("Honorários");
 
-        jLabel_Observacoes.setText("Observações");
+        jLabel_Processo.setText("Processo");
 
-        jTextArea_Observacoes.setColumns(20);
-        jTextArea_Observacoes.setRows(5);
-        jScrollPane1.setViewportView(jTextArea_Observacoes);
-
-        jLabel_Estrategia.setText("Estratégia");
-
-        jTextArea_Estrategia.setColumns(20);
-        jTextArea_Estrategia.setRows(5);
-        jScrollPane2.setViewportView(jTextArea_Estrategia);
-
-        jButton_Salvar.setText("Salvar");
-        jButton_Salvar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_SalvarMouseClicked(evt);
-            }
-        });
-
-        jButton_Limpar.setText("Limpar");
-        jButton_Limpar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_LimparMouseClicked(evt);
-            }
-        });
-
-        jButton_Sair.setText("Sair");
-        jButton_Sair.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_SairMouseClicked(evt);
-            }
-        });
-
-        jButton_NovaComarca.setText("Novo");
-        jButton_NovaComarca.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton_NovaComarcaMouseClicked(evt);
-            }
-        });
+        jLabel_Comarca.setText("Comarca");
 
         jButton_NovaVara.setText("Novo");
         jButton_NovaVara.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,13 +161,18 @@ public class ProcessoGUI extends javax.swing.JPanel {
             }
         });
 
-        jFormattedTextField_Honorários.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
-        jFormattedTextField_Honorários.setMaximumSize(new java.awt.Dimension(12, 30));
-        jFormattedTextField_Honorários.setMinimumSize(new java.awt.Dimension(12, 30));
+        jLabel_AdvogadoOposto.setText("Advogado Oposto");
+
+        jButton_Atualizar.setText("Atualizar");
+        jButton_Atualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_AtualizarMouseClicked(evt);
+            }
+        });
+
+        jFormattedTextField_Honorarios.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
 
         jFormattedTextField_ValorDaCausa.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
-        jFormattedTextField_ValorDaCausa.setMaximumSize(new java.awt.Dimension(12, 30));
-        jFormattedTextField_ValorDaCausa.setMinimumSize(new java.awt.Dimension(12, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -220,34 +188,29 @@ public class ProcessoGUI extends javax.swing.JPanel {
                     .addComponent(jLabel_Cliente)
                     .addComponent(jLabel_Status)
                     .addComponent(jLabel_ParteOposta)
-                    .addComponent(jLabel_Processo)
                     .addComponent(jLabel_AdvogadoOposto)
                     .addComponent(jLabel_Juiz)
                     .addComponent(jLabel_ValorDaCausa)
                     .addComponent(jLabel_Observacoes)
-                    .addComponent(jLabel_Estrategia))
+                    .addComponent(jLabel_Estrategia)
+                    .addComponent(jLabel_Processo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_Atualizar)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton_Salvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton_Limpar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton_Sair))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField_AdvogadoOposto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-                            .addComponent(jTextField_ParteOposta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-                            .addComponent(jTextField_Processo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox_Status1, 0, 155, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField_AdvogadoOposto, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                            .addComponent(jTextField_ParteOposta, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jComboBox_Status1, 0, 212, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBox_Status2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox_Cliente, javax.swing.GroupLayout.Alignment.LEADING, 0, 334, Short.MAX_VALUE)
-                            .addComponent(jComboBox_Fase, javax.swing.GroupLayout.Alignment.LEADING, 0, 334, Short.MAX_VALUE)
-                            .addComponent(jComboBox_TipoDaAcao, javax.swing.GroupLayout.Alignment.LEADING, 0, 334, Short.MAX_VALUE)
-                            .addComponent(jCombo_BoxVara, javax.swing.GroupLayout.Alignment.LEADING, 0, 334, Short.MAX_VALUE)
-                            .addComponent(jComboBox_Comarca, javax.swing.GroupLayout.Alignment.LEADING, 0, 334, Short.MAX_VALUE))
+                            .addComponent(jComboBox_Cliente, 0, 391, Short.MAX_VALUE)
+                            .addComponent(jComboBox_Fase, 0, 391, Short.MAX_VALUE)
+                            .addComponent(jComboBox_TipoDaAcao, 0, 391, Short.MAX_VALUE)
+                            .addComponent(jComboBox_Vara, 0, 391, Short.MAX_VALUE)
+                            .addComponent(jComboBox_Comarca, 0, 391, Short.MAX_VALUE)
+                            .addComponent(jTextField_Processo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton_NovaVara)
@@ -256,15 +219,15 @@ public class ProcessoGUI extends javax.swing.JPanel {
                             .addComponent(jButton_NovoTipoDaAcao)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jFormattedTextField_ValorDaCausa, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jFormattedTextField_ValorDaCausa, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel_Honorarios)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField_Honorários, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox_Juiz, 0, 334, Short.MAX_VALUE))
+                                .addComponent(jFormattedTextField_Honorarios, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
+                            .addComponent(jComboBox_Juiz, 0, 391, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_NovoJuiz)))
                 .addContainerGap())
@@ -274,8 +237,8 @@ public class ProcessoGUI extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_Processo)
-                    .addComponent(jTextField_Processo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_Processo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Processo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_Comarca)
@@ -284,7 +247,7 @@ public class ProcessoGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_Vara)
-                    .addComponent(jCombo_BoxVara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox_Vara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_NovaVara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -322,9 +285,9 @@ public class ProcessoGUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel_ValorDaCausa)
-                            .addComponent(jFormattedTextField_ValorDaCausa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel_Honorarios)
-                            .addComponent(jFormattedTextField_Honorários, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jFormattedTextField_Honorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFormattedTextField_ValorDaCausa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jButton_NovoJuiz))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,84 +302,224 @@ public class ProcessoGUI extends javax.swing.JPanel {
                         .addGap(2, 2, 2)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Limpar)
-                    .addComponent(jButton_Salvar)
-                    .addComponent(jButton_Sair))
-                .addContainerGap())
+                .addComponent(jButton_Atualizar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_SairMouseClicked
-        habilitaBotoesBarraDeFerramentas();
-        areaDeTrabalho.removeAll();
-        areaDeTrabalho.revalidate();
-        areaDeTrabalho.repaint();
-    }//GEN-LAST:event_jButton_SairMouseClicked
+    private void carregaVara() {
+        jComboBox_Vara.removeAllItems();
+        System.out.println("");
+        System.out.println("Carregando varas");
+        for (Vara vara : advogadoFacade.getTodasVaras()) {
+            jComboBox_Vara.addItem(vara);
+            System.out.println("Vara: " + vara.getId() + " - " + vara.getNome());
+        }
+        System.out.println("Tamanho da lista de varas:" + jComboBox_Vara.getItemCount());
+        System.out.println("Varas carregadas");
+    }
 
-    private void jButton_LimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_LimparMouseClicked
-        limpaCampos();
-    }//GEN-LAST:event_jButton_LimparMouseClicked
+    private void carregaComarca() {
+        jComboBox_Comarca.removeAllItems();
+        System.out.println("");
+        System.out.println("Carregando comarcas");
+        for (Comarca comarca : advogadoFacade.getTodasComarcas()) {
+            jComboBox_Comarca.addItem(comarca);
+            System.out.println("Comarca: " + comarca.getId() + " - " + comarca.getNome());
+        }
+        System.out.println("Tamanho da lista de comarcas: " + jComboBox_Comarca.getItemCount());
+        System.out.println("Comarcas carregadas.");
+    }
 
-    private void jButton_NovaVaraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_NovaVaraMouseClicked
-        VaraGUI vg = new VaraGUI(advogadoFacade,null, true);
-        vg.setVisible(true);
-        carregaVara();
-    }//GEN-LAST:event_jButton_NovaVaraMouseClicked
+    private void carregaCliente() {
+        jComboBox_Cliente.removeAllItems();
+        System.out.println("");
+        System.out.println("Carregando clientes");
+        for (Cliente cliente : advogadoFacade.getTodosClientes()) {
+            jComboBox_Cliente.addItem(cliente);
+            System.out.println("Cliente: " + cliente.getId() + " - " + cliente.getNome());
+        }
+        System.out.println("Tamanho da lista de clientes: " + jComboBox_Cliente.getItemCount());
+        System.out.println("Clientes carregados.");
+    }
 
-    private void jButton_NovaComarcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_NovaComarcaMouseClicked
-        ComarcaGUI cg = new ComarcaGUI(advogadoFacade,null, true);
-        cg.setVisible(true);
+    private void carregaJuiz() {
+        jComboBox_Juiz.removeAllItems();
+        System.out.println("");
+        System.out.println("Carregando juizes");
+        for (Juiz juiz : advogadoFacade.getTodosJuizes()) {
+            jComboBox_Juiz.addItem(juiz);
+            System.out.println("Juiz: " + juiz.getId() + " - " + juiz.getNome());
+        }
+        System.out.println("Tamanho da lista de juizes: " + jComboBox_Juiz.getItemCount());
+        System.out.println("Juizes carregados.");
+    }
+
+    private void carregaFase() {
+        jComboBox_Fase.removeAllItems();
+        System.out.println("");
+        System.out.println("Carregando fases");
+        for (Fase fase : advogadoFacade.getTodasFases()) {
+            jComboBox_Fase.addItem(fase);
+            System.out.println("Fase: " + fase.getId() + " - " + fase.getNome());
+        }
+        System.out.println("Tamanho da lista de fases: " + jComboBox_Fase.getItemCount());
+        System.out.println("fases carregados.");
+    }
+
+    private void carregaAcao() {
+        jComboBox_TipoDaAcao.removeAllItems();
+        System.out.println("");
+        System.out.println("Carregando tipo de ações");
+        for (Acao acao : advogadoFacade.getTodasAcoes()) {
+            jComboBox_TipoDaAcao.addItem(acao);
+            System.out.println("Tipo de Ação: " + acao.getId() + " - " + acao.getNome());
+        }
+        System.out.println("Tamanho da lista de tipo de ações: " + jComboBox_TipoDaAcao.getItemCount());
+        System.out.println("Tipo de ações carregados.");
+    }
+
+    private void carregaProcesso(Processo processo) {
+        System.out.println("");
+        System.out.println("Carregando processo");
+        carregaAcao();
+        carregaCliente();
         carregaComarca();
-    }//GEN-LAST:event_jButton_NovaComarcaMouseClicked
-
-    private void jButton_NovoJuizMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_NovoJuizMouseClicked
-        JuizGUI jg = new JuizGUI(advogadoFacade, null, true);
-        jg.setVisible(true);
+        carregaFase();
         carregaJuiz();
-    }//GEN-LAST:event_jButton_NovoJuizMouseClicked
+        carregaVara();
+
+        jTextField_Processo.setText(processo.getNome());
+
+
+        //Comarca
+        //if(!processo.getIdComarca().toString().isEmpty()){
+        if (processo.getIdComarca() != null) {
+            jComboBox_Comarca.setSelectedItem(advogadoFacade.pesquisarComarcaPorId(processo.getIdComarca()));
+        }
+
+        //Vara
+        //if(!processo.getIdVara().toString().isEmpty()){
+        if (processo.getIdVara() != null) {
+            jComboBox_Vara.setSelectedItem(advogadoFacade.pesquisarVaraPorId(processo.getIdVara()));
+        }
+
+        //Tipo de Ação
+        //if(!processo.getIdTipoDaAcao().toString().isEmpty()){
+        if (processo.getIdTipoDaAcao() != null) {
+            jComboBox_TipoDaAcao.setSelectedItem(advogadoFacade.pesquisarAcaoPorId(processo.getIdTipoDaAcao()));
+        }
+
+        //Fase
+        //if(!processo.getIdFase().toString().isEmpty()){
+        if (processo.getIdFase() != null) {
+            jComboBox_Fase.setSelectedItem(advogadoFacade.pesquisarFasePorId(processo.getIdFase()));
+        }
+
+        //Cliente
+        if (!processo.getIdCliente().toString().isEmpty()) {
+            jComboBox_Cliente.setSelectedItem(advogadoFacade.pesquisarClientePorId(processo.getIdCliente()));
+        }
+
+        //Juiz
+        //if(!processo.getIdJuiz().toString().isEmpty()){
+        if (processo.getIdJuiz() != null) {
+            jComboBox_Juiz.setSelectedItem(advogadoFacade.pesquisarJuizPorId(processo.getIdJuiz()));
+        }
+
+        //Status
+        jComboBox_Status1.setSelectedItem(processo.getStatus());
+        jComboBox_Status2.setSelectedItem(processo.getPosicao());
+
+        //Parte Oposta
+        if (!processo.getParteOposta().isEmpty()) {
+            jTextField_ParteOposta.setText(processo.getParteOposta());
+        }
+
+        //Advogado Oposto
+        if (!processo.getAdvogadoOposto().isEmpty()) {
+            jTextField_AdvogadoOposto.setText(processo.getAdvogadoOposto());
+        }
+
+        //Valor da Causa
+        if (!processo.getValorDaCausa().isEmpty()) {
+            jFormattedTextField_ValorDaCausa.setText(processo.getValorDaCausa());
+        }
+
+        //Honorários
+        if (!processo.getHonorarios().isEmpty()) {
+            jFormattedTextField_Honorarios.setText(processo.getHonorarios());
+        }
+
+        //Estratégia
+        if (!processo.getEstrategia().isEmpty()) {
+            jTextArea_Estrategia.setText(processo.getEstrategia());
+        }
+
+        //Observações
+        if (!processo.getObservacoes().isEmpty()) {
+            jTextArea_Observacoes.setText(processo.getObservacoes());
+        }
+
+    }
 
     private void jButton_NovaFaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_NovaFaseMouseClicked
         FaseGUI fg = new FaseGUI(advogadoFacade, null, true);
         fg.setVisible(true);
         carregaFase();
-    }//GEN-LAST:event_jButton_NovaFaseMouseClicked
+}//GEN-LAST:event_jButton_NovaFaseMouseClicked
+
+    private void jButton_NovaComarcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_NovaComarcaMouseClicked
+        ComarcaGUI cg = new ComarcaGUI(advogadoFacade, null, true);
+        cg.setVisible(true);
+        carregaComarca();
+}//GEN-LAST:event_jButton_NovaComarcaMouseClicked
 
     private void jButton_NovoTipoDaAcaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_NovoTipoDaAcaoMouseClicked
         AcaoGUI ag = new AcaoGUI(advogadoFacade, null, true);
         ag.setVisible(true);
         carregaAcao();
-    }//GEN-LAST:event_jButton_NovoTipoDaAcaoMouseClicked
+}//GEN-LAST:event_jButton_NovoTipoDaAcaoMouseClicked
 
-    private void jButton_SalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_SalvarMouseClicked
+    private void jButton_NovoJuizMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_NovoJuizMouseClicked
+        JuizGUI jg = new JuizGUI(advogadoFacade, null, true);
+        jg.setVisible(true);
+        carregaJuiz();
+}//GEN-LAST:event_jButton_NovoJuizMouseClicked
+
+    private void jButton_NovaVaraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_NovaVaraMouseClicked
+        VaraGUI vg = new VaraGUI(advogadoFacade, null, true);
+        vg.setVisible(true);
+        carregaVara();
+}//GEN-LAST:event_jButton_NovaVaraMouseClicked
+
+    private void jButton_AtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_AtualizarMouseClicked
         String nome = jTextField_Processo.getText();
-        
+
         Long comarcaID = null;
-        if (jComboBox_Comarca.getItemCount() > 0 ){
+        if (jComboBox_Comarca.getItemCount() > 0) {
             Comarca comarca = (Comarca) jComboBox_Comarca.getSelectedItem();
             comarcaID = comarca.getId();
         }
 
-
         Long varaID = null;
-        if (jCombo_BoxVara.getItemCount() > 0) {
-            Vara vara = (Vara) jCombo_BoxVara.getSelectedItem();
+        if (jComboBox_Vara.getItemCount() > 0) {
+            Vara vara = (Vara) jComboBox_Vara.getSelectedItem();
             varaID = vara.getId();
         }
 
-
         Long acaoID = null;
-        if (jComboBox_TipoDaAcao.getItemCount() > 0){
+        if (jComboBox_TipoDaAcao.getItemCount() > 0) {
             Acao acao = (Acao) jComboBox_TipoDaAcao.getSelectedItem();
             acaoID = acao.getId();
         }
-        
+
         Long faseID = null;
         if (jComboBox_Fase.getItemCount() > 0) {
             Fase fase = (Fase) jComboBox_Fase.getSelectedItem();
             faseID = fase.getId();
         }
-        
+
         Long clienteID = null;
         if (jComboBox_Cliente.getItemCount() > 0) {
             Cliente cliente = (Cliente) jComboBox_Cliente.getSelectedItem();
@@ -429,8 +532,7 @@ public class ProcessoGUI extends javax.swing.JPanel {
 
         String parteOposta = jTextField_ParteOposta.getText();
         String advogadoOposto = jTextField_AdvogadoOposto.getText();
-        
-        
+
         Long juizID = null;
         if (jComboBox_Juiz.getItemCount() > 0) {
             Juiz juiz = (Juiz) jComboBox_Juiz.getSelectedItem();
@@ -438,19 +540,54 @@ public class ProcessoGUI extends javax.swing.JPanel {
         }
 
         String valorDaCausa = jFormattedTextField_ValorDaCausa.getText();
-        String honorarios = jFormattedTextField_Honorários.getText();
+        String honorarios = jFormattedTextField_Honorarios.getText();
         String observacoes = jTextArea_Observacoes.getText();
         String estrategia = jTextArea_Estrategia.getText();
 
+        //Atualizando processo
+        processo.setNome(nome);
+        processo.setAdvogadoOposto(advogadoOposto);
+        processo.setEstrategia(estrategia);
+        processo.setHonorarios(honorarios);
+        processo.setIdCliente(clienteID);
+        processo.setIdComarca(comarcaID);
+        processo.setIdFase(faseID);
+        processo.setIdJuiz(juizID);
+        processo.setIdTipoDaAcao(acaoID);
+        processo.setIdVara(varaID);
+        processo.setObservacoes(observacoes);
+        processo.setParteOposta(parteOposta);
+        processo.setPosicao(posicao);
+        processo.setStatus(status);
+        processo.setValorDaCausa(valorDaCausa);
+
+        System.out.println("=================================");
+        System.out.println("nome "+nome);
+        System.out.println("advogado"+advogadoOposto);
+        System.out.println("estrategia"+estrategia);
+        System.out.println("honorarios"+honorarios);
+        System.out.println("cliente"+clienteID);
+        System.out.println("comarca"+comarcaID);
+        System.out.println("fase"+faseID);
+        System.out.println("juiz"+juizID);
+        System.out.println("acao"+acaoID);
+        System.out.println("vara"+varaID);
+        System.out.println("observacoes"+observacoes);
+        System.out.println("parteOposta"+parteOposta);
+        System.out.println("posicao"+posicao);
+        System.out.println("status"+status);
+        System.out.println("valordacausa"+valorDaCausa);
+        System.out.println("=================================");
+
         try {
-            advogadoFacade.criarProcesso(nome, comarcaID, varaID, acaoID, faseID, clienteID, juizID, status, posicao, parteOposta, advogadoOposto, valorDaCausa, honorarios, observacoes, estrategia);
-            JOptionPane.showMessageDialog(null, "Processo "+nome+" salvo com sucesso.");
-            limpaCampos();
+            advogadoFacade.atualizarProcesso(processo);
+            JOptionPane.showMessageDialog(null, "Processo " + nome + " salvo com sucesso.");
+            //limpaCampos();
         } catch (AtributoNaoEncontrado ex) {
             System.out.println("");
             System.out.println("Erro: Falta algum atributo.");
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-            if (ex.getMessage().contains("Nome")){
+            if (ex.getMessage().contains("Nome")) {
                 jTextField_Processo.setText("");
                 jTextField_Processo.requestFocus();
             }
@@ -461,109 +598,14 @@ public class ProcessoGUI extends javax.swing.JPanel {
             jTextField_Processo.setText("");
             jTextField_Processo.requestFocus();
         }
-    }//GEN-LAST:event_jButton_SalvarMouseClicked
-
-    private void habilitaBotoesBarraDeFerramentas(){
-        for (Component botoes: barraDeFerramentas.getComponents()) {
-            botoes.setEnabled(true);
-        }
-        System.out.println("");
-        System.out.println("Todos os botoes habilitados.");
-    }
-
-    private void limpaCampos(){
-        jTextField_Processo.setText("");
-        jTextField_AdvogadoOposto.setText("");
-        jTextField_ParteOposta.setText("");
-        jTextArea_Estrategia.setText("");
-        jTextArea_Observacoes.setText("");
-        jFormattedTextField_Honorários.setText("");
-        jFormattedTextField_ValorDaCausa.setText("");
-        System.out.println("");
-        System.out.println("Todos os campos limpos.");
-    }
-
-    private void carregaVara () {
-        jCombo_BoxVara.removeAllItems();
-        System.out.println("");
-        System.out.println("Carregando varas");
-        for (Vara vara : advogadoFacade.getTodasVaras()) {
-            jCombo_BoxVara.addItem(vara);
-            System.out.println("Vara: "+ vara.getId() + " - " + vara.getNome());
-        }
-        System.out.println("Tamanho da lista de varas:" + jCombo_BoxVara.getItemCount());
-        System.out.println("Varas carregadas");
-    }
-
-    private void carregaComarca () {
-        jComboBox_Comarca.removeAllItems();
-        System.out.println("");
-        System.out.println("Carregando comarcas");
-        for (Comarca comarca : advogadoFacade.getTodasComarcas()) {
-            jComboBox_Comarca.addItem(comarca);
-            System.out.println("Comarca: "+ comarca.getId() + " - " + comarca.getNome());
-        }
-        System.out.println("Tamanho da lista de comarcas: " + jComboBox_Comarca.getItemCount());
-        System.out.println("Comarcas carregadas.");
-    }
-
-    private void carregaCliente () {
-        jComboBox_Cliente.removeAllItems();
-        System.out.println("");
-        System.out.println("Carregando clientes");
-        for (Cliente cliente : advogadoFacade.getTodosClientes()) {
-            jComboBox_Cliente.addItem(cliente);
-            System.out.println("Cliente: "+ cliente.getId() + " - " + cliente.getNome());
-        }
-        System.out.println("Tamanho da lista de clientes: " + jComboBox_Comarca.getItemCount());
-        System.out.println("Clientes carregados.");
-    }
-
-    private void carregaJuiz () {
-        jComboBox_Juiz.removeAllItems();
-        System.out.println("");
-        System.out.println("Carregando juizes");
-        for (Juiz juiz : advogadoFacade.getTodosJuizes()) {
-            jComboBox_Juiz.addItem(juiz);
-            System.out.println("Juiz: "+ juiz.getId() + " - " + juiz.getNome());
-        }
-        System.out.println("Tamanho da lista de juizes: " + jComboBox_Juiz.getItemCount());
-        System.out.println("Juizes carregados.");
-    }
-
-    private void carregaFase() {
-        jComboBox_Fase.removeAllItems();
-        System.out.println("");
-        System.out.println("Carregando fases");
-        for (Fase fase : advogadoFacade.getTodasFases()) {
-            jComboBox_Fase.addItem(fase);
-            System.out.println("Fase: "+ fase.getId() + " - " + fase.getNome());
-        }
-        System.out.println("Tamanho da lista de fases: " + jComboBox_Fase.getItemCount());
-        System.out.println("fases carregados.");
-    }
-
-    private void carregaAcao() {
-        jComboBox_TipoDaAcao.removeAllItems();
-        System.out.println("");
-        System.out.println("Carregando tipo de ações");
-        for (Acao acao : advogadoFacade.getTodasAcoes()) {
-            jComboBox_TipoDaAcao.addItem(acao);
-            System.out.println("Tipo de Ação: "+ acao.getId() + " - " + acao.getNome());
-        }
-        System.out.println("Tamanho da lista de tipo de ações: " + jComboBox_TipoDaAcao.getItemCount());
-        System.out.println("Tipo de ações carregados.");
-    }
-
+    }//GEN-LAST:event_jButton_AtualizarMouseClicked
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Limpar;
+    private javax.swing.JButton jButton_Atualizar;
     private javax.swing.JButton jButton_NovaComarca;
     private javax.swing.JButton jButton_NovaFase;
     private javax.swing.JButton jButton_NovaVara;
     private javax.swing.JButton jButton_NovoJuiz;
     private javax.swing.JButton jButton_NovoTipoDaAcao;
-    private javax.swing.JButton jButton_Sair;
-    private javax.swing.JButton jButton_Salvar;
     private javax.swing.JComboBox jComboBox_Cliente;
     private javax.swing.JComboBox jComboBox_Comarca;
     private javax.swing.JComboBox jComboBox_Fase;
@@ -571,8 +613,8 @@ public class ProcessoGUI extends javax.swing.JPanel {
     private javax.swing.JComboBox jComboBox_Status1;
     private javax.swing.JComboBox jComboBox_Status2;
     private javax.swing.JComboBox jComboBox_TipoDaAcao;
-    private javax.swing.JComboBox jCombo_BoxVara;
-    private javax.swing.JFormattedTextField jFormattedTextField_Honorários;
+    private javax.swing.JComboBox jComboBox_Vara;
+    private javax.swing.JFormattedTextField jFormattedTextField_Honorarios;
     private javax.swing.JFormattedTextField jFormattedTextField_ValorDaCausa;
     private javax.swing.JLabel jLabel_AdvogadoOposto;
     private javax.swing.JLabel jLabel_Cliente;
@@ -596,5 +638,4 @@ public class ProcessoGUI extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField_ParteOposta;
     private javax.swing.JTextField jTextField_Processo;
     // End of variables declaration//GEN-END:variables
-
 }
