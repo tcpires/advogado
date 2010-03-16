@@ -515,7 +515,7 @@ public class ProcessoGUI extends javax.swing.JPanel {
             jComboBox_Cliente.addItem(cliente);
             System.out.println("Cliente: "+ cliente.getId() + " - " + cliente.getNome());
         }
-        System.out.println("Tamanho da lista de clientes: " + jComboBox_Comarca.getItemCount());
+        System.out.println("Tamanho da lista de clientes: " + jComboBox_Cliente.getItemCount());
         System.out.println("Clientes carregados.");
     }
 

@@ -43,7 +43,7 @@ public class Cliente implements Serializable{
     @Column(name = "bairro")
     private String bairro;
 
-    @Column(name = "cidade", nullable=false)
+    @Column(name = "cidade")
     private String cidade;
 
     @Column(name = "cep")
@@ -57,9 +57,6 @@ public class Cliente implements Serializable{
 
     @Column(name = "celular")
     private String celular;
-
-    @Column(name = "posicao")
-    private String posicao;
 
     @Column(name = "email")
     private String email;
@@ -144,14 +141,6 @@ public class Cliente implements Serializable{
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getPosicao() {
-        return posicao;
-    }
-
-    public void setPosicao(String posicao) {
-        this.posicao = posicao;
     }
 
     public String getPreposto() {

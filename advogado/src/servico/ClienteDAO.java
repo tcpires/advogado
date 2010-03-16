@@ -30,6 +30,13 @@ public class ClienteDAO {
         session.getTransaction().commit();
     }
 
+    public void atualizar(Cliente cliente) {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        session.update(cliente);
+        session.getTransaction().commit();
+    }
+
     public List<Cliente> pesquisarPorNome(String nome) throws ClienteNaoEncontradoException {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
@@ -45,14 +52,13 @@ public class ClienteDAO {
         if (clienteLista.isEmpty()) {
             throw new ClienteNaoEncontradoException("Não foi possivel encontrar " + nome);
         }
-
         return clienteLista;
     }
 
     public Cliente pesquisarPorId(Long id) {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Query query = session.createQuery("Select c From Cliente c Where c.id: id");
+        Query query = session.createQuery("Select c From Cliente c Where c.id = :id");
         query.setParameter("id", id);
         Cliente cliente = (Cliente) query.uniqueResult();
         return cliente;
@@ -66,7 +72,7 @@ public class ClienteDAO {
         Cliente cliente = (Cliente) query.uniqueResult();
         String resultado = "";
 
-        //Melhorar depois o getAtributo
+        // TODO Melhorar depois o getAtributo Cliente
         if (atributo.equals("nome")) {
             resultado = cliente.getNome();
         } else if (atributo.equals("cidade")) {
@@ -104,13 +110,15 @@ public class ClienteDAO {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         Query query = session.createQuery("Select c From Cliente c order by nome");
+        List<Cliente> clienteLista = query.list();
+        return clienteLista;
+    }
 
-        //Dispensavel
-        List<Cliente> clientes = query.list();
-        for (Cliente cliente : clientes) {
-            System.out.println("Cliente : "+ cliente.getId() + " - " + cliente.getNome());
-        }
-
-        return query.list();
+    public List<Cliente> getTodosClientesPorCidade() {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Query query = session.createQuery("Select c From Cliente c order by cidade");
+        List<Cliente> clienteLista = query.list();
+        return clienteLista;
     }
 }

@@ -379,6 +379,30 @@ public class AdvogadoFacade {
         return processoDAO.pesquisarPorId(id);
     }
 
+    public List<Processo> pesquisarProcessoPorCliente(Long clienteId) {
+        return processoDAO.pesquisarPorCliente(clienteId);
+    }
+
+    public List<Processo> pesquisarProcessoPorComarca(Long comarcaId) {
+        return processoDAO.pesquisarPorComarca(comarcaId);
+    }
+
+    public List<Processo> pesquisarProcessoPorVara(Long varaId) {
+        return processoDAO.pesquisarPorVara(varaId);
+    }
+
+    public List<Processo> pesquisarProcessoPorJuiz(Long juizId) {
+        return processoDAO.pesquisarPorJuiz(juizId);
+    }
+
+    public List<Processo> pesquisarProcessoPorTipoDaAcao(Long tipoDaAcaoId) {
+        return processoDAO.pesquisarPorTipoDaAcao(tipoDaAcaoId);
+    }
+
+    public List<Processo> pesquisarProcessoPorFase(Long faseId) {
+        return processoDAO.pesquisarPorFase(faseId);
+    }
+
     public String getClienteAtributo(Long id, String atributo) {
         return clienteDAO.getClienteAtributo(id, atributo);
     }
@@ -423,6 +447,10 @@ public class AdvogadoFacade {
 
     public List<Cliente> getTodosClientes() {
         return clienteDAO.getTodosClientes();
+    }
+
+    public List<Cliente> getTodosClientesPorCidade() {
+        return clienteDAO.getTodosClientesPorCidade();
     }
 
     public List<Vara> getTodasVaras() {

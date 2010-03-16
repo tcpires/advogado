@@ -19,5 +19,6 @@
     <mapping class="modelo.Juiz"/>
     <mapping class="modelo.Processo"/>
     <mapping class="modelo.Acao"/>
+    <mapping class="modelo.Audiencia"/>
   </session-factory>
 </hibernate-configuration>
