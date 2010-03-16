@@ -1,21 +1,23 @@
 ##################################################################
 # Algum problema reportar a andrehadm@gmail.com
 ##################################################################
-# [Cliente] CRUD de Clientes
+# [Processo] CRUD de Processos
 #
 # * Nome
-# * CPF
-# * RG
-# * Endereco
-# * Bairro
-# * Cidade
-# * CEP
-# * UF
-# * Telefone
-# * Celular
-# * Email
-# * Visita
-# * Preposto
+# * idComarca
+# * idVara
+# * idTipoDeAcao
+# * idFase
+# * idCliente
+# * status
+# * posicao
+# * parteOposta
+# * advogadoOposto
+# * idJuiz
+# * valorDaCausa
+# * honorario
+# * observacoes
+# * estrategia
 
 ##################################################################
 # Inicialização
@@ -28,7 +30,7 @@
 removeTodosClientes
 
 ##################################################################
-# Criar Cliente
+# Criar Processo
 ##################################################################
 # Não deve existir cliente nesse momento
 expectError "Não foi possivel encontrar Andre" pesquisarPorNome nome=Andre

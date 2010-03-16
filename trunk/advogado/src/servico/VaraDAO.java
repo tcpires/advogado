@@ -4,6 +4,8 @@
  */
 package servico;
 
+import excecao.VaraNaoEncontradaException;
+import java.util.ArrayList;
 import java.util.List;
 import modelo.Vara;
 import org.hibernate.Query;
@@ -39,10 +41,42 @@ public class VaraDAO {
     public Vara pesquisarPorId(Long id) {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Query query = session.createQuery("Select v From Vara v Where v.id: id");
+        Query query = session.createQuery("Select v From Vara v Where v.id = :id");
         query.setParameter("id", id);
         Vara vara = (Vara) query.uniqueResult();
         return vara;
     }
 
+    public boolean pesquisarExistencia(String nome) {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Query query = session.createQuery("Select v From Vara v Where v.nome like :nome");
+        query.setParameter("nome", "%" + nome + "%");
+        List<Vara> varas = query.list();
+        for (Vara vara : varas) {
+            if (vara.getNome().toLowerCase().contains(nome.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<Vara> pesquisarPorNome(String nome) throws VaraNaoEncontradaException {
+        session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Query query = session.createQuery("Select v From Vara v Where v.nome like :nome");
+        query.setParameter("nome", "%" + nome + "%");
+        List<Vara> varas = query.list();
+        List<Vara> varasLista = new ArrayList<Vara>();
+        for (Vara vara : varas) {
+            if (vara.getNome().toLowerCase().contains(nome.toLowerCase())) {
+                varasLista.add(vara);
+            }
+        }
+        if (varasLista.isEmpty()) {
+            throw new VaraNaoEncontradaException("Não foi possivel encontrar " + nome);
+        }
+
+        return varasLista;
+    }
 }

@@ -60,10 +60,10 @@ public class Processo implements Serializable{
     private Long idJuiz;
 
     @Column(name = "valorDaCausa")
-    private Double valorDaCausa;
+    private String valorDaCausa;
 
     @Column(name = "honorarios")
-    private Double honorarios;
+    private String honorarios;
     //private Audiencia audiencias;
 
     @Column(name = "observacoes")
@@ -104,11 +104,11 @@ public class Processo implements Serializable{
         this.idFase = fase;
     }
 
-    public Double getHonorarios() {
+    public String getHonorarios() {
         return honorarios;
     }
 
-    public void setHonorarios(Double honorarios) {
+    public void setHonorarios(String honorarios) {
         this.honorarios = honorarios;
     }
 
@@ -200,12 +200,16 @@ public class Processo implements Serializable{
         this.idTipoDaAcao = idTipoDaAcao;
     }
 
-    public Double getValorDaCausa() {
+    public String getValorDaCausa() {
         return valorDaCausa;
     }
 
-    public void setValorDaCausa(Double valorDaCausa) {
+    public void setValorDaCausa(String valorDaCausa) {
         this.valorDaCausa = valorDaCausa;
     }
 
+    public String toString(){
+        String resultado = nome;
+        return resultado;
+    }
 }

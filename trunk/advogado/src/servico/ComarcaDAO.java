@@ -30,7 +30,7 @@ public class ComarcaDAO {
         session.getTransaction().commit();
     }
 
-    public List<Comarca> getTodasComarcas()  {
+    public List<Comarca> getTodasComarcas() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         Query query = session.createQuery("Select c From Comarca c order by nome");
@@ -41,7 +41,7 @@ public class ComarcaDAO {
     public Comarca pesquisarPorId(Long id) {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Query query = session.createQuery("Select c From Comarca c Where c.id: id");
+        Query query = session.createQuery("Select c From Comarca c Where c.id = :id");
         query.setParameter("id", id);
         Comarca comarca = (Comarca) query.uniqueResult();
         return comarca;
@@ -54,8 +54,6 @@ public class ComarcaDAO {
         query.setParameter("nome", "%" + nome + "%");
         List<Comarca> comarcas = query.list();
         for (Comarca comarca : comarcas) {
-            System.out.println("Comarca:"+ comarca.getNome());
-            System.out.println("Nome:"+ nome);
             if (comarca.getNome().toLowerCase().contains(nome.toLowerCase())) {
                 return true;
             }
@@ -81,5 +79,4 @@ public class ComarcaDAO {
 
         return comarcasLista;
     }
-
 }

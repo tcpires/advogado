@@ -46,6 +46,10 @@ public class AdvogadoGUI extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JToolBar.Separator();
         jButtonProcessoNovo = new javax.swing.JButton();
         jButtonProcessosPesquisa = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
+        jButton_Audiencia = new javax.swing.JButton();
+        jButton_Financeiro = new javax.swing.JButton();
+        jButton_Relatorios = new javax.swing.JButton();
         jButtonTeste = new javax.swing.JButton();
         jPanelAreaDeTrabalho = new javax.swing.JPanel();
         barraDeMenu = new javax.swing.JMenuBar();
@@ -117,6 +121,30 @@ public class AdvogadoGUI extends javax.swing.JFrame {
             }
         });
         barraDeFerramentas.add(jButtonProcessosPesquisa);
+        barraDeFerramentas.add(jSeparator2);
+
+        jButton_Audiencia.setText("Audiências");
+        jButton_Audiencia.setFocusable(false);
+        jButton_Audiencia.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton_Audiencia.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        barraDeFerramentas.add(jButton_Audiencia);
+
+        jButton_Financeiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/financas.png"))); // NOI18N
+        jButton_Financeiro.setFocusable(false);
+        jButton_Financeiro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton_Financeiro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        barraDeFerramentas.add(jButton_Financeiro);
+
+        jButton_Relatorios.setText("Relatorios");
+        jButton_Relatorios.setFocusable(false);
+        jButton_Relatorios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton_Relatorios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton_Relatorios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_RelatoriosMouseClicked(evt);
+            }
+        });
+        barraDeFerramentas.add(jButton_Relatorios);
 
         jButtonTeste.setText("Teste");
         jButtonTeste.setFocusable(false);
@@ -243,6 +271,19 @@ public class AdvogadoGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonProcessosPesquisaMouseClicked
 
+    private void jButton_RelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_RelatoriosMouseClicked
+        if (jButton_Relatorios.isEnabled()) {
+            RelatoriosGUI relatoriosGUI = new RelatoriosGUI(jPanelAreaDeTrabalho, barraDeFerramentas, advogadoFacade);
+            relatoriosGUI.setSize(jPanelAreaDeTrabalho.getWidth() - 15, jPanelAreaDeTrabalho.getHeight() - 15 );
+            jPanelAreaDeTrabalho.removeAll();
+            jPanelAreaDeTrabalho.add(relatoriosGUI);
+            jPanelAreaDeTrabalho.revalidate();
+            System.out.println(barraDeFerramentas.getComponentCount());
+            desabilitaBotoesBarraDeFerramentas();
+            System.out.println("Relatorios.");
+        }
+    }//GEN-LAST:event_jButton_RelatoriosMouseClicked
+
     //Ainda não está sendo usado
     public void atualizarAreaDeTrabalho() {
         jPanelAreaDeTrabalho.removeAll();
@@ -291,6 +332,9 @@ public class AdvogadoGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonProcessoNovo;
     private javax.swing.JButton jButtonProcessosPesquisa;
     private javax.swing.JButton jButtonTeste;
+    private javax.swing.JButton jButton_Audiencia;
+    private javax.swing.JButton jButton_Financeiro;
+    private javax.swing.JButton jButton_Relatorios;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem_Sair;
@@ -298,6 +342,7 @@ public class AdvogadoGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelAreaDeTrabalho;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
     // End of variables declaration//GEN-END:variables
 
 }
