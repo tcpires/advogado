@@ -17,12 +17,14 @@ import excecao.ProcessoInvalidoException;
 import excecao.VaraJaExisteException;
 import java.util.List;
 import modelo.Acao;
+import modelo.Audiencia;
 import modelo.Comarca;
 import modelo.Fase;
 import modelo.Juiz;
 import modelo.Processo;
 import modelo.Vara;
 import servico.AcaoDAO;
+import servico.AudienciaDAO;
 import servico.ComarcaDAO;
 import servico.FaseDAO;
 import servico.JuizDAO;
@@ -42,6 +44,7 @@ public class AdvogadoFacade {
     private AcaoDAO acaoDAO;
     private FaseDAO faseDAO;
     private ProcessoDAO processoDAO;
+    private AudienciaDAO audienciaDAO;
 
     public AdvogadoFacade() {
         clienteDAO = new ClienteDAO();
@@ -51,6 +54,7 @@ public class AdvogadoFacade {
         acaoDAO = new AcaoDAO();
         faseDAO = new FaseDAO();
         processoDAO = new ProcessoDAO();
+        audienciaDAO = new AudienciaDAO();
     }
 
     public Cliente criarCliente(String nome, String cpf, String rg, String endereco, String bairro, String cidade, String cep, String uf, String telefone, String celular, String email, String visita, String preposto) throws AtributoNaoEncontrado, CPFInvalidoException {
@@ -183,6 +187,16 @@ public class AdvogadoFacade {
 
     private boolean faseJaExiste(Fase fase) {
         return faseDAO.pesquisarExistencia(fase.getNome());
+    }
+
+    public Audiencia criarAudiencia(Long idProcesso, String data, String hora, String historico) {
+        Audiencia audiencia = new Audiencia();
+        audiencia.setIdProcesso(idProcesso);
+        audiencia.setDataAudiencia(data);
+        audiencia.setHoraAudiencia(hora);
+        audiencia.setHistorico(historico);
+        audienciaDAO.salvar(audiencia);
+        return audiencia;
     }
 
     private boolean verificaAtributos(String nome, String cpf) throws AtributoNaoEncontrado {
