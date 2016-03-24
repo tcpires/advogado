@@ -1,0 +1,1 @@
+O projeto propõe uma forma simples para o gerenciamento de clientes, processos e audiências para advogados.
